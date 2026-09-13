@@ -116,7 +116,7 @@ export const problemSolvingData = {
 export const educationData = {
   degree: "Bachelor of Engineering in Computer Science",
   institution: "Chitkara University",
-  graduation: "Expected Graduation: 2027",
+  graduation: "Expected Graduation: 2028",
   year: "3rd Year",
   focus: ["DSA", "Backend Development", "Database Systems"],
 };
