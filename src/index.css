@@ -46,3 +46,20 @@ body {
   background: #DBEAFE;
   color: #1E3A8A;
 }
+
+/* Ultra-subtle dot grid for hero background */
+.hero-dots {
+  background-image: radial-gradient(circle, #D1D5DB 0.6px, transparent 0.6px);
+  background-size: 20px 20px;
+  opacity: 1;
+}
+.hero-dots::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-image: inherit;
+  background-size: inherit;
+  opacity: 0.025;
+  pointer-events: none;
+}

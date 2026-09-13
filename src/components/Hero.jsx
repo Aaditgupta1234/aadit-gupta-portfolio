@@ -1,34 +1,46 @@
 import { motion } from "framer-motion";
-import { ArrowDown, FileDown } from "lucide-react";
+import { ArrowRight, FileDown } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from "./BrandIcons";
 import { heroData } from "../data/portfolioData";
 import BlueprintGraphic from "./BlueprintGraphic";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
+    transition: { delay: i * 0.08, duration: 0.45, ease: "easeOut" },
   }),
 };
 
 export default function Hero() {
   return (
-    <section className="pt-24 pb-12 md:pb-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="relative min-h-[85vh] flex items-center pt-20 pb-10 bg-white overflow-hidden">
+      {/* Subtle dot-grid background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #D1D5DB 0.5px, transparent 0.5px)",
+          backgroundSize: "22px 22px",
+          opacity: 0.025,
+        }}
+      />
+
+      <div className="relative max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         {/* Left Column */}
-        <div>
+        <div className="max-w-[580px]">
+          {/* Label */}
           <motion.span
             custom={0}
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="inline-block px-3 py-1 text-xs font-semibold tracking-[0.2em] text-navy bg-blue-50 rounded-full mb-6"
+            className="inline-block px-3 py-1 text-xs font-semibold tracking-[0.2em] text-navy bg-blue-50 rounded-full mb-5"
           >
             {heroData.label}
           </motion.span>
 
+          {/* Name */}
           <motion.h1
             custom={1}
             variants={fadeUp}
@@ -39,42 +51,46 @@ export default function Hero() {
             {heroData.name}
           </motion.h1>
 
-          <motion.p
+          {/* Subtitle */}
+          <motion.h2
             custom={2}
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-base text-text-secondary italic mb-5 leading-relaxed"
-          >
-            &ldquo;{heroData.quote}&rdquo;
-          </motion.p>
-
-          <motion.h2
-            custom={3}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="text-lg sm:text-xl font-medium text-text-primary mb-4"
+            className="text-lg sm:text-xl font-semibold tracking-wide text-text-primary mb-3"
           >
             {heroData.subtitle}
           </motion.h2>
 
+          {/* Bio — primary value proposition, stronger */}
+          <motion.p
+            custom={3}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="text-base sm:text-lg text-text-secondary font-medium leading-relaxed max-w-lg mb-2"
+          >
+            {heroData.bio}
+          </motion.p>
+
+          {/* Quote — signature, lighter */}
           <motion.p
             custom={4}
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-text-secondary leading-relaxed max-w-lg mb-3"
+            className="text-sm text-gray-400 italic tracking-wide mb-4"
           >
-            {heroData.bio}
+            &ldquo;{heroData.quote}&rdquo;
           </motion.p>
 
+          {/* Tags */}
           <motion.p
             custom={5}
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-xs tracking-wide text-text-secondary font-medium uppercase mb-6"
+            className="text-[11px] tracking-wide text-text-secondary font-medium uppercase mb-4"
           >
             {heroData.tags}
           </motion.p>
@@ -85,7 +101,7 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="flex flex-wrap gap-2 mb-8"
+            className="flex flex-wrap gap-2 mb-5"
           >
             {heroData.techPills.map((pill) => (
               <span
@@ -97,76 +113,81 @@ export default function Hero() {
             ))}
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* Hero Actions: CTA Buttons + Social Links */}
           <motion.div
             custom={7}
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="flex flex-wrap gap-3 mb-6"
+            className="flex flex-col gap-3.5 mt-2"
           >
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-navy rounded-lg hover:bg-navy-dark transition-colors duration-200"
-            >
-              View My Work
-              <ArrowDown size={15} />
-            </a>
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-navy border border-navy rounded-lg hover:bg-navy hover:text-white transition-colors duration-200"
-            >
-              <FileDown size={15} />
-              Download Resume
-            </a>
-          </motion.div>
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="#projects"
+                className="group inline-flex items-center gap-2 px-7 py-3 text-sm font-medium text-white bg-navy rounded-lg shadow-sm hover:bg-navy-dark hover:shadow-md transition-all duration-200"
+              >
+                View My Work
+                <ArrowRight
+                  size={15}
+                  className="transition-transform duration-200 group-hover:translate-x-0.5"
+                />
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3 text-sm font-medium text-navy border border-navy rounded-lg hover:bg-navy hover:text-white transition-all duration-200"
+              >
+                <FileDown size={15} />
+                Download Resume
+              </a>
+            </div>
 
-          {/* Social Icons */}
-          <motion.div
-            custom={8}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="flex items-center gap-4"
-          >
-            <a
-              href={heroData.socials.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-secondary hover:text-text-primary transition-colors duration-200"
-              aria-label="GitHub"
-            >
-              <GithubIcon size={18} />
-            </a>
-            <a
-              href={heroData.socials.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-secondary hover:text-text-primary transition-colors duration-200"
-              aria-label="LinkedIn"
-            >
-              <LinkedinIcon size={18} />
-            </a>
-            <a
-              href={heroData.socials.leetcode}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-secondary hover:text-text-primary transition-colors duration-200"
-              aria-label="LeetCode"
-            >
-              <LeetCodeIcon size={18} />
-            </a>
+            {/* Social Links — Secondary Actions */}
+            <div className="flex items-center gap-4 text-sm">
+              <a
+                href={heroData.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-flex items-center gap-1.5 font-medium text-slate-500 hover:text-navy transition-all duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
+                aria-label="GitHub"
+              >
+                <GithubIcon size={16} />
+                GitHub
+              </a>
+              <span className="text-slate-300 select-none">·</span>
+              <a
+                href={heroData.socials.leetcode}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-flex items-center gap-1.5 font-medium text-slate-500 hover:text-navy transition-all duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
+                aria-label="LeetCode"
+              >
+                <LeetCodeIcon size={16} />
+                LeetCode
+              </a>
+              <span className="text-slate-300 select-none">·</span>
+              <a
+                href={heroData.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-flex items-center gap-1.5 font-medium text-slate-500 hover:text-navy transition-all duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
+                aria-label="LinkedIn"
+              >
+                <LinkedinIcon size={16} />
+                LinkedIn
+              </a>
+            </div>
           </motion.div>
         </div>
 
-        {/* Right Column — Blueprint */}
+        {/* Right Column — Blueprint (scaled 1.05 and vertically centered with role) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-          className="hidden lg:flex justify-center items-center"
+          initial={{ opacity: 0, scale: 1.0 }}
+          animate={{ opacity: 1, scale: 1.05 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+          className="hidden lg:flex justify-center items-center lg:-translate-y-5"
         >
           <BlueprintGraphic />
         </motion.div>

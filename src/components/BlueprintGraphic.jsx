@@ -1,117 +1,124 @@
 export default function BlueprintGraphic() {
   return (
     <svg
-      viewBox="0 0 480 400"
+      viewBox="0 0 480 420"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-auto max-w-md"
+      className="w-full h-auto max-w-[460px]"
       aria-hidden="true"
     >
-      {/* Grid dots background */}
+      {/* Dot grid background */}
       <defs>
-        <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-          <circle cx="1" cy="1" r="0.8" fill="#E5E7EB" />
+        <pattern id="dots" x="0" y="0" width="26" height="26" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="0.6" fill="#E5E7EB" />
         </pattern>
       </defs>
-      <rect width="480" height="400" fill="url(#dots)" rx="12" />
+      <rect width="480" height="420" fill="url(#dots)" rx="12" />
 
-      {/* API Gateway Node */}
-      <rect x="180" y="28" width="120" height="36" rx="6" stroke="#1E3A8A" strokeWidth="1.2" fill="white" />
-      <text x="240" y="51" textAnchor="middle" fill="#1E3A8A" fontSize="11" fontFamily="Inter" fontWeight="500">
+      {/* ── API Gateway ── */}
+      <rect x="180" y="32" width="120" height="34" rx="8" stroke="#1E3A8A" strokeWidth="0.8" fill="white" />
+      <text x="240" y="53" textAnchor="middle" fill="#1E3A8A" fontSize="10.5" fontFamily="Inter" fontWeight="500">
         API Gateway
       </text>
 
-      {/* Arrows down from gateway */}
-      <line x1="210" y1="64" x2="130" y2="110" stroke="#D1D5DB" strokeWidth="1" strokeDasharray="4 3" />
-      <line x1="240" y1="64" x2="240" y2="110" stroke="#D1D5DB" strokeWidth="1" strokeDasharray="4 3" />
-      <line x1="270" y1="64" x2="350" y2="110" stroke="#D1D5DB" strokeWidth="1" strokeDasharray="4 3" />
+      {/* Connectors down from gateway */}
+      <line x1="210" y1="66" x2="130" y2="120" stroke="#D1D5DB" strokeWidth="0.6" strokeDasharray="4 4" />
+      <line x1="240" y1="66" x2="240" y2="120" stroke="#D1D5DB" strokeWidth="0.6" strokeDasharray="4 4" />
+      <line x1="270" y1="66" x2="350" y2="120" stroke="#D1D5DB" strokeWidth="0.6" strokeDasharray="4 4" />
 
-      {/* Service Node 1 — Auth */}
-      <rect x="80" y="110" width="100" height="34" rx="6" stroke="#6B7280" strokeWidth="1" fill="white" />
-      <text x="130" y="131" textAnchor="middle" fill="#374151" fontSize="10" fontFamily="Inter" fontWeight="400">
+      {/* ── Service Layer ── */}
+      {/* Auth Service */}
+      <rect x="76" y="120" width="108" height="32" rx="8" stroke="#D1D5DB" strokeWidth="0.6" fill="white" />
+      <text x="130" y="140" textAnchor="middle" fill="#6B7280" fontSize="10" fontFamily="Inter" fontWeight="400">
         Auth Service
       </text>
 
-      {/* Service Node 2 — FastAPI */}
-      <rect x="190" y="110" width="100" height="34" rx="6" stroke="#1E3A8A" strokeWidth="1.2" fill="#F0F4FF" />
-      <text x="240" y="131" textAnchor="middle" fill="#1E3A8A" fontSize="10" fontFamily="Inter" fontWeight="500">
+      {/* FastAPI Core — accent */}
+      <rect x="186" y="120" width="108" height="32" rx="8" stroke="#1E3A8A" strokeWidth="0.8" fill="#F8FAFF" />
+      <text x="240" y="140" textAnchor="middle" fill="#1E3A8A" fontSize="10" fontFamily="Inter" fontWeight="500">
         FastAPI Core
       </text>
 
-      {/* Service Node 3 — Analytics */}
-      <rect x="300" y="110" width="100" height="34" rx="6" stroke="#6B7280" strokeWidth="1" fill="white" />
-      <text x="350" y="131" textAnchor="middle" fill="#374151" fontSize="10" fontFamily="Inter" fontWeight="400">
+      {/* Analytics */}
+      <rect x="296" y="120" width="108" height="32" rx="8" stroke="#D1D5DB" strokeWidth="0.6" fill="white" />
+      <text x="350" y="140" textAnchor="middle" fill="#6B7280" fontSize="10" fontFamily="Inter" fontWeight="400">
         Analytics
       </text>
 
-      {/* Connector lines to data layer */}
-      <line x1="130" y1="144" x2="130" y2="195" stroke="#E5E7EB" strokeWidth="1" />
-      <line x1="240" y1="144" x2="240" y2="195" stroke="#D1D5DB" strokeWidth="1" strokeDasharray="4 3" />
-      <line x1="350" y1="144" x2="350" y2="195" stroke="#E5E7EB" strokeWidth="1" />
+      {/* Connectors to data layer */}
+      <line x1="130" y1="152" x2="130" y2="210" stroke="#E5E7EB" strokeWidth="0.5" />
+      <line x1="240" y1="152" x2="240" y2="210" stroke="#D1D5DB" strokeWidth="0.6" strokeDasharray="4 4" />
+      <line x1="350" y1="152" x2="350" y2="210" stroke="#E5E7EB" strokeWidth="0.5" />
 
-      {/* Database node */}
-      <ellipse cx="130" cy="210" rx="46" ry="14" stroke="#1E3A8A" strokeWidth="1" fill="white" />
-      <text x="130" y="214" textAnchor="middle" fill="#1E3A8A" fontSize="9" fontFamily="Inter" fontWeight="500">
+      {/* ── Data / Processing Layer ── */}
+      {/* PostgreSQL */}
+      <ellipse cx="130" cy="226" rx="48" ry="14" stroke="#1E3A8A" strokeWidth="0.8" fill="white" />
+      <text x="130" y="230" textAnchor="middle" fill="#1E3A8A" fontSize="9" fontFamily="Inter" fontWeight="500">
         PostgreSQL
       </text>
 
-      {/* Processing node */}
-      <rect x="200" y="196" width="80" height="28" rx="14" stroke="#6B7280" strokeWidth="1" fill="white" />
-      <text x="240" y="214" textAnchor="middle" fill="#374151" fontSize="9" fontFamily="Inter" fontWeight="400">
+      {/* KPI Engine */}
+      <rect x="198" y="212" width="84" height="28" rx="14" stroke="#D1D5DB" strokeWidth="0.6" fill="white" />
+      <text x="240" y="230" textAnchor="middle" fill="#6B7280" fontSize="9" fontFamily="Inter" fontWeight="400">
         KPI Engine
       </text>
 
-      {/* Cache / Queue node */}
-      <rect x="310" y="196" width="80" height="28" rx="6" stroke="#6B7280" strokeWidth="1" fill="white" />
-      <text x="350" y="214" textAnchor="middle" fill="#374151" fontSize="9" fontFamily="Inter" fontWeight="400">
+      {/* Queue */}
+      <rect x="306" y="212" width="84" height="28" rx="8" stroke="#D1D5DB" strokeWidth="0.6" fill="white" />
+      <text x="348" y="230" textAnchor="middle" fill="#6B7280" fontSize="9" fontFamily="Inter" fontWeight="400">
         Queue
       </text>
 
-      {/* Arrow from KPI Engine down to Root Cause */}
-      <line x1="240" y1="224" x2="240" y2="264" stroke="#D1D5DB" strokeWidth="1" strokeDasharray="4 3" />
+      {/* Connector KPI → Root Cause */}
+      <line x1="240" y1="240" x2="240" y2="284" stroke="#D1D5DB" strokeWidth="0.6" strokeDasharray="4 4" />
 
-      {/* Root Cause Analysis */}
-      <rect x="170" y="264" width="140" height="32" rx="6" stroke="#1E3A8A" strokeWidth="1.2" fill="#F0F4FF" />
-      <text x="240" y="284" textAnchor="middle" fill="#1E3A8A" fontSize="10" fontFamily="Inter" fontWeight="500">
+      {/* ── Analysis Layer ── */}
+      {/* Root Cause Analysis — accent */}
+      <rect x="168" y="284" width="144" height="30" rx="8" stroke="#1E3A8A" strokeWidth="0.8" fill="#F8FAFF" />
+      <text x="240" y="303" textAnchor="middle" fill="#1E3A8A" fontSize="10" fontFamily="Inter" fontWeight="500">
         Root Cause Analysis
       </text>
 
-      {/* Arrow down to report */}
-      <line x1="240" y1="296" x2="240" y2="328" stroke="#D1D5DB" strokeWidth="1" strokeDasharray="4 3" />
+      {/* Connector → Report */}
+      <line x1="240" y1="314" x2="240" y2="350" stroke="#D1D5DB" strokeWidth="0.6" strokeDasharray="4 4" />
 
-      {/* Executive Report node */}
-      <rect x="175" y="328" width="130" height="30" rx="6" stroke="#6B7280" strokeWidth="1" fill="white" />
-      <text x="240" y="347" textAnchor="middle" fill="#374151" fontSize="9.5" fontFamily="Inter" fontWeight="400">
+      {/* Intelligence Report */}
+      <rect x="174" y="350" width="132" height="28" rx="8" stroke="#D1D5DB" strokeWidth="0.6" fill="white" />
+      <text x="240" y="368" textAnchor="middle" fill="#6B7280" fontSize="9.5" fontFamily="Inter" fontWeight="400">
         Intelligence Report
       </text>
 
-      {/* Small data flow arrows on the sides */}
-      <line x1="84" y1="210" x2="48" y2="210" stroke="#E5E7EB" strokeWidth="1" />
-      <circle cx="44" cy="210" r="3" fill="#E5E7EB" />
+      {/* ── Side decorations ── */}
+      {/* Left data endpoint */}
+      <line x1="82" y1="226" x2="48" y2="226" stroke="#E5E7EB" strokeWidth="0.5" />
+      <circle cx="44" cy="226" r="2.5" fill="#E5E7EB" />
 
-      <line x1="390" y1="210" x2="430" y2="210" stroke="#E5E7EB" strokeWidth="1" />
-      <circle cx="434" cy="210" r="3" fill="#E5E7EB" />
+      {/* Right data endpoint */}
+      <line x1="390" y1="226" x2="432" y2="226" stroke="#E5E7EB" strokeWidth="0.5" />
+      <circle cx="436" cy="226" r="2.5" fill="#E5E7EB" />
 
-      {/* Small metric indicators */}
-      <rect x="36" y="260" width="56" height="44" rx="6" stroke="#E5E7EB" strokeWidth="1" fill="white" />
-      <text x="64" y="278" textAnchor="middle" fill="#1E3A8A" fontSize="13" fontFamily="Inter" fontWeight="600">
+      {/* ── Metric cards ── */}
+      {/* Left metric */}
+      <rect x="32" y="278" width="58" height="44" rx="8" stroke="#E5E7EB" strokeWidth="0.5" fill="white" />
+      <text x="61" y="296" textAnchor="middle" fill="#1E3A8A" fontSize="13" fontFamily="Inter" fontWeight="600">
         97%
       </text>
-      <text x="64" y="293" textAnchor="middle" fill="#9CA3AF" fontSize="7.5" fontFamily="Inter">
+      <text x="61" y="311" textAnchor="middle" fill="#B0B5BD" fontSize="7" fontFamily="Inter">
         Accuracy
       </text>
 
-      <rect x="388" y="260" width="56" height="44" rx="6" stroke="#E5E7EB" strokeWidth="1" fill="white" />
-      <text x="416" y="278" textAnchor="middle" fill="#1E3A8A" fontSize="13" fontFamily="Inter" fontWeight="600">
+      {/* Right metric */}
+      <rect x="390" y="278" width="58" height="44" rx="8" stroke="#E5E7EB" strokeWidth="0.5" fill="white" />
+      <text x="419" y="296" textAnchor="middle" fill="#1E3A8A" fontSize="13" fontFamily="Inter" fontWeight="600">
         42ms
       </text>
-      <text x="416" y="293" textAnchor="middle" fill="#9CA3AF" fontSize="7.5" fontFamily="Inter">
+      <text x="419" y="311" textAnchor="middle" fill="#B0B5BD" fontSize="7" fontFamily="Inter">
         Response
       </text>
 
-      {/* Floating quote badge */}
-      <rect x="330" y="38" width="130" height="28" rx="14" fill="white" stroke="#E5E7EB" strokeWidth="1" />
-      <text x="395" y="56" textAnchor="middle" fill="#1E3A8A" fontSize="9.5" fontFamily="Inter" fontWeight="500" fontStyle="italic">
+      {/* ── Floating quote badge ── */}
+      <rect x="332" y="40" width="126" height="26" rx="13" fill="white" stroke="#E5E7EB" strokeWidth="0.5" />
+      <text x="395" y="57" textAnchor="middle" fill="#1E3A8A" fontSize="9" fontFamily="Inter" fontWeight="500" fontStyle="italic">
         Design. Build. Scale.
       </text>
     </svg>

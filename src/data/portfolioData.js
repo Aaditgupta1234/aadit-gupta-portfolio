@@ -10,7 +10,7 @@ export const heroData = {
   label: "SOFTWARE ENGINEER",
   name: "Aadit Gupta",
   quote: "Building systems that turn data into decisions.",
-  subtitle: "Software Engineer & Backend Developer",
+  subtitle: "Software Engineer · Backend Developer",
   bio: "Building production-grade systems, explainable AI platforms, and scalable backend architectures.",
   tags: "BE CSE  |  Backend Developer  |  Problem Solver",
   techPills: ["Java", "Python", "FastAPI", "PostgreSQL", "React", "TypeScript"],
