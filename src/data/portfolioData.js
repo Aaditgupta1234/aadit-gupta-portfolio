@@ -15,9 +15,9 @@ export const heroData = {
   tags: "BE CSE  |  Backend Developer  |  Problem Solver",
   techPills: ["Java", "Python", "FastAPI", "PostgreSQL", "React", "TypeScript"],
   socials: {
-    github: "https://github.com/aaditgupta",
-    linkedin: "https://linkedin.com/in/aaditgupta",
-    leetcode: "https://leetcode.com/aaditgupta",
+    github: "https://github.com/Aaditgupta1234",
+    linkedin: "https://www.linkedin.com/in/aadit-gupta-028385327/",
+    leetcode: "https://leetcode.com/u/AaditGupta_1234/",
   },
 };
 
@@ -151,10 +151,10 @@ export const journeyData = [
 export const contactData = {
   title: "Open to Opportunities",
   subtitle: "Internships • Software Engineering Roles • Backend Development Opportunities",
-  email: "aadit@example.com",
+  email: "aaditgupta2006@gmail.com",
   links: {
-    github: "https://github.com/aaditgupta",
-    linkedin: "https://linkedin.com/in/aaditgupta",
-    leetcode: "https://leetcode.com/aaditgupta",
+    github: "https://github.com/Aaditgupta1234",
+    linkedin: "https://www.linkedin.com/in/aadit-gupta-028385327/",
+    leetcode: "https://leetcode.com/u/AaditGupta_1234/",
   },
 };
