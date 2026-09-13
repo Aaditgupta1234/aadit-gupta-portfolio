@@ -15,8 +15,8 @@ const fadeUp = {
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center pt-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="pt-24 pb-12 md:pb-16 bg-white">
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left Column */}
         <div>
           <motion.span
