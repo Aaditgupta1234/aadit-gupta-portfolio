@@ -26,9 +26,9 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
-        {/* Left Column */}
-        <div className="max-w-[600px]">
+      <div className="relative max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center">
+        {/* Left Column (58% allocated space) */}
+        <div className="lg:col-span-7 max-w-[680px]">
           {/* Label */}
           <motion.span
             custom={0}
@@ -68,7 +68,7 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-base sm:text-lg text-text-secondary font-medium leading-relaxed max-w-lg mb-2"
+            className="text-base sm:text-lg text-text-secondary font-medium leading-relaxed max-w-2xl mb-2"
           >
             {heroData.bio}
           </motion.p>
@@ -182,8 +182,8 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Column — Interactive 3D Hero Orb */}
-        <div className="flex justify-center items-center lg:-translate-y-4">
+        {/* Right Column — Interactive 3D Hero Orb (42% allocated space) */}
+        <div className="lg:col-span-5 flex justify-center items-center lg:-translate-y-4">
           <HeroOrb />
         </div>
       </div>
