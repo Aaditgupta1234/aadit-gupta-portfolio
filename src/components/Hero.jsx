@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, FileDown } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from "./BrandIcons";
 import { heroData } from "../data/portfolioData";
-import BlueprintGraphic from "./BlueprintGraphic";
+import HeroOrb from "./HeroOrb";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -26,9 +26,9 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div className="relative max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
         {/* Left Column */}
-        <div className="max-w-[580px]">
+        <div className="max-w-[660px]">
           {/* Label */}
           <motion.span
             custom={0}
@@ -68,7 +68,7 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-base sm:text-lg text-text-secondary font-medium leading-relaxed max-w-lg mb-2"
+            className="text-base sm:text-lg text-text-secondary font-medium leading-relaxed max-w-xl mb-2"
           >
             {heroData.bio}
           </motion.p>
@@ -182,15 +182,10 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Column — Blueprint (scaled 1.05 and vertically centered with role) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.0 }}
-          animate={{ opacity: 1, scale: 1.05 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          className="hidden lg:flex justify-center items-center lg:-translate-y-5"
-        >
-          <BlueprintGraphic />
-        </motion.div>
+        {/* Right Column — Interactive 3D Hero Orb */}
+        <div className="flex justify-center items-center">
+          <HeroOrb />
+        </div>
       </div>
     </section>
   );

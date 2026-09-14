@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, ArrowUpRight, Copy, Check } from "lucide-react";
+import { Mail, ArrowUpRight, Check } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from "./BrandIcons";
 import { contactData } from "../data/portfolioData";
 
