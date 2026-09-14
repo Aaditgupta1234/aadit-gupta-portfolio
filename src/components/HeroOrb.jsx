@@ -1,24 +1,39 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 
-const TECH_STACK = [
-  { name: "Java", category: "Core & Algorithms" },
-  { name: "Python", category: "AI & Scripting" },
-  { name: "FastAPI", category: "High-Perf Backend" },
-  { name: "PostgreSQL", category: "Relational Architecture" },
-  { name: "React", category: "Interface Systems" },
-  { name: "TypeScript", category: "Type-Safe Systems" },
+const IDENTITY_SLIDES = [
+  {
+    title: "DecisionOS",
+    subtitle: "Explainable AI Platform",
+    tag: "Flagship AI Architecture",
+  },
+  {
+    title: "AVELIS",
+    subtitle: "Digital Library Platform",
+    tag: "Production-Grade System",
+  },
+  {
+    title: "Backend Systems",
+    subtitle: "FastAPI + PostgreSQL",
+    tag: "Scalable Infrastructure",
+  },
+  {
+    title: "Frontend Craft",
+    subtitle: "React + TypeScript",
+    tag: "Responsive Interfaces",
+  },
 ];
 
 export default function HeroOrb() {
-  const [techIndex, setTechIndex] = useState(0);
+  const [slideIndex, setSlideIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [activePillar, setActivePillar] = useState(null);
 
-  // Cycle technologies automatically
+  // Cycle identity slides every 4.5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
-      setTechIndex((prev) => (prev + 1) % TECH_STACK.length);
-    }, 2800);
+      setSlideIndex((prev) => (prev + 1) % IDENTITY_SLIDES.length);
+    }, 4500);
     return () => clearInterval(timer);
   }, []);
 
@@ -30,8 +45,8 @@ export default function HeroOrb() {
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
-  const rotateX = useTransform(smoothY, [-180, 180], [12, -12]);
-  const rotateY = useTransform(smoothX, [-180, 180], [-12, 12]);
+  const rotateX = useTransform(smoothY, [-180, 180], [10, -10]);
+  const rotateY = useTransform(smoothX, [-180, 180], [-10, 10]);
   const lightSheenX = useTransform(smoothX, [-180, 180], ["20%", "45%"]);
   const lightSheenY = useTransform(smoothY, [-180, 180], ["15%", "40%"]);
 
@@ -51,69 +66,210 @@ export default function HeroOrb() {
 
   return (
     <div
-      className="relative w-full max-w-[480px] h-[420px] sm:h-[460px] flex items-center justify-center select-none"
+      className="relative w-full max-w-[460px] h-[420px] sm:h-[450px] flex items-center justify-center select-none"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       style={{ perspective: 1000 }}
     >
-      {/* ── Background Subtle Glows ── */}
+      {/* ── Subdued Precision Aura ── */}
       <motion.div
         animate={{
-          scale: isHovered ? 1.15 : 1,
-          opacity: isHovered ? 0.35 : 0.22,
+          scale: isHovered ? 1.1 : 1,
+          opacity: isHovered ? 0.22 : 0.14,
         }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="absolute w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-navy via-blue-500 to-indigo-400 blur-3xl pointer-events-none"
+        className="absolute w-64 h-64 sm:w-72 sm:h-72 rounded-full bg-gradient-to-tr from-navy/20 via-blue-500/15 to-indigo-400/10 blur-2xl pointer-events-none"
       />
-      <div className="absolute w-60 h-60 rounded-full bg-blue-400/10 blur-2xl pointer-events-none" />
 
-      {/* ── SVG Connecting Lines to Floating Labels ── */}
+      {/* ── Mathematical Radial Blueprint System (Orbit → Connector → Label) ── */}
       <svg
-        viewBox="0 0 380 380"
+        viewBox="0 0 440 440"
         className="absolute inset-0 w-full h-full pointer-events-none"
         fill="none"
       >
-        {/* Dynamic Connection Lines */}
-        <motion.path
-          d="M 90 40 L 140 100"
+        {/* Primary Circular Orbit Anchor Ring (Prominent, crisp) */}
+        <circle
+          cx="220"
+          cy="220"
+          r="158"
           stroke="#CBD5E1"
-          strokeWidth="0.85"
-          strokeDasharray="3 3"
-          animate={{ strokeDashoffset: [0, -12] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          strokeWidth="1"
+          strokeDasharray="4 6"
+          opacity="0.75"
         />
-        <circle cx="140" cy="100" r="2" fill="#3B82F6" />
 
-        <motion.path
-          d="M 290 40 L 240 100"
-          stroke="#CBD5E1"
-          strokeWidth="0.85"
-          strokeDasharray="3 3"
-          animate={{ strokeDashoffset: [0, -12] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+        {/* Concentric Reference Guide */}
+        <circle
+          cx="220"
+          cy="220"
+          r="140"
+          stroke="#E2E8F0"
+          strokeWidth="0.65"
+          opacity="0.4"
         />
-        <circle cx="240" cy="100" r="2" fill="#3B82F6" />
 
-        <motion.path
-          d="M 90 340 L 140 280"
-          stroke="#CBD5E1"
-          strokeWidth="0.85"
-          strokeDasharray="3 3"
-          animate={{ strokeDashoffset: [0, 12] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-        />
-        <circle cx="140" cy="280" r="2" fill="#3B82F6" />
+        {/* 1. BACKEND Radial Ray & Anchor Node (Top-Left 135°) */}
+        <g
+          opacity={activePillar === "backend" ? 1 : 0.4}
+          className="transition-opacity duration-300 pointer-events-auto cursor-pointer"
+          onMouseEnter={() => setActivePillar("backend")}
+          onMouseLeave={() => setActivePillar(null)}
+        >
+          {/* Radial connector line extending from orbit ring node */}
+          <line
+            x1="108"
+            y1="108"
+            x2="88"
+            y2="88"
+            stroke={activePillar === "backend" ? "#3B82F6" : "#94A3B8"}
+            strokeWidth={activePillar === "backend" ? 1.2 : 0.85}
+          />
+          <line
+            x1="88"
+            y1="88"
+            x2="60"
+            y2="88"
+            stroke={activePillar === "backend" ? "#3B82F6" : "#94A3B8"}
+            strokeWidth={activePillar === "backend" ? 1.2 : 0.85}
+            strokeDasharray="2 2"
+          />
+          {/* Orbit Node */}
+          <circle
+            cx="108"
+            cy="108"
+            r={activePillar === "backend" ? 3.5 : 2.5}
+            fill="#3B82F6"
+          />
+          <circle
+            cx="108"
+            cy="108"
+            r="6"
+            stroke="#3B82F6"
+            strokeWidth="0.5"
+            opacity={activePillar === "backend" ? 0.7 : 0.25}
+          />
+        </g>
 
-        <motion.path
-          d="M 290 340 L 240 280"
-          stroke="#CBD5E1"
-          strokeWidth="0.85"
-          strokeDasharray="3 3"
-          animate={{ strokeDashoffset: [0, 12] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-        />
-        <circle cx="240" cy="280" r="2" fill="#3B82F6" />
+        {/* 2. AI Radial Ray & Anchor Node (Top-Right 45°) */}
+        <g
+          opacity={activePillar === "ai" ? 1 : 0.4}
+          className="transition-opacity duration-300 pointer-events-auto cursor-pointer"
+          onMouseEnter={() => setActivePillar("ai")}
+          onMouseLeave={() => setActivePillar(null)}
+        >
+          <line
+            x1="332"
+            y1="108"
+            x2="352"
+            y2="88"
+            stroke={activePillar === "ai" ? "#3B82F6" : "#94A3B8"}
+            strokeWidth={activePillar === "ai" ? 1.2 : 0.85}
+          />
+          <line
+            x1="352"
+            y1="88"
+            x2="380"
+            y2="88"
+            stroke={activePillar === "ai" ? "#3B82F6" : "#94A3B8"}
+            strokeWidth={activePillar === "ai" ? 1.2 : 0.85}
+            strokeDasharray="2 2"
+          />
+          <circle
+            cx="332"
+            cy="108"
+            r={activePillar === "ai" ? 3.5 : 2.5}
+            fill="#3B82F6"
+          />
+          <circle
+            cx="332"
+            cy="108"
+            r="6"
+            stroke="#3B82F6"
+            strokeWidth="0.5"
+            opacity={activePillar === "ai" ? 0.7 : 0.25}
+          />
+        </g>
+
+        {/* 3. DATA Radial Ray & Anchor Node (Bottom-Left 225°) */}
+        <g
+          opacity={activePillar === "data" ? 1 : 0.4}
+          className="transition-opacity duration-300 pointer-events-auto cursor-pointer"
+          onMouseEnter={() => setActivePillar("data")}
+          onMouseLeave={() => setActivePillar(null)}
+        >
+          <line
+            x1="108"
+            y1="332"
+            x2="88"
+            y2="352"
+            stroke={activePillar === "data" ? "#3B82F6" : "#94A3B8"}
+            strokeWidth={activePillar === "data" ? 1.2 : 0.85}
+          />
+          <line
+            x1="88"
+            y1="352"
+            x2="60"
+            y2="352"
+            stroke={activePillar === "data" ? "#3B82F6" : "#94A3B8"}
+            strokeWidth={activePillar === "data" ? 1.2 : 0.85}
+            strokeDasharray="2 2"
+          />
+          <circle
+            cx="108"
+            cy="332"
+            r={activePillar === "data" ? 3.5 : 2.5}
+            fill="#3B82F6"
+          />
+          <circle
+            cx="108"
+            cy="332"
+            r="6"
+            stroke="#3B82F6"
+            strokeWidth="0.5"
+            opacity={activePillar === "data" ? 0.7 : 0.25}
+          />
+        </g>
+
+        {/* 4. UI Radial Ray & Anchor Node (Bottom-Right 315°) */}
+        <g
+          opacity={activePillar === "ui" ? 1 : 0.4}
+          className="transition-opacity duration-300 pointer-events-auto cursor-pointer"
+          onMouseEnter={() => setActivePillar("ui")}
+          onMouseLeave={() => setActivePillar(null)}
+        >
+          <line
+            x1="332"
+            y1="332"
+            x2="352"
+            y2="352"
+            stroke={activePillar === "ui" ? "#3B82F6" : "#94A3B8"}
+            strokeWidth={activePillar === "ui" ? 1.2 : 0.85}
+          />
+          <line
+            x1="352"
+            y1="352"
+            x2="380"
+            y2="352"
+            stroke={activePillar === "ui" ? "#3B82F6" : "#94A3B8"}
+            strokeWidth={activePillar === "ui" ? 1.2 : 0.85}
+            strokeDasharray="2 2"
+          />
+          <circle
+            cx="332"
+            cy="332"
+            r={activePillar === "ui" ? 3.5 : 2.5}
+            fill="#3B82F6"
+          />
+          <circle
+            cx="332"
+            cy="332"
+            r="6"
+            stroke="#3B82F6"
+            strokeWidth="0.5"
+            opacity={activePillar === "ui" ? 0.7 : 0.25}
+          />
+        </g>
       </svg>
 
       {/* ── 3D Interactive Container ── */}
@@ -123,14 +279,14 @@ export default function HeroOrb() {
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 flex items-center justify-center cursor-grab active:cursor-grabbing"
+        className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-[290px] md:h-[290px] flex items-center justify-center cursor-grab active:cursor-grabbing"
       >
-        {/* ── Orbital Rings Layer ── */}
-        {/* Ring 1 — Diagonal Tilt */}
+        {/* ── Precision Orbital Rings ── */}
+        {/* Ring 1 — Diagonal Orbit */}
         <motion.div
           animate={{ rotateZ: 360 }}
-          transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[310px] h-[310px] sm:w-[350px] sm:h-[350px] rounded-full border border-blue-400/25 pointer-events-none"
+          transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+          className="absolute w-[295px] h-[295px] sm:w-[325px] sm:h-[325px] rounded-full border border-blue-400/30 pointer-events-none"
           style={{
             transform: "rotateX(70deg) rotateY(-20deg)",
           }}
@@ -142,8 +298,8 @@ export default function HeroOrb() {
         {/* Ring 2 — Counter Orbit */}
         <motion.div
           animate={{ rotateZ: -360 }}
-          transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[290px] h-[290px] sm:w-[330px] sm:h-[330px] rounded-full border border-navy/20 pointer-events-none"
+          transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
+          className="absolute w-[280px] h-[280px] sm:w-[310px] sm:h-[310px] rounded-full border border-navy/25 pointer-events-none"
           style={{
             transform: "rotateX(75deg) rotateY(25deg)",
           }}
@@ -155,26 +311,26 @@ export default function HeroOrb() {
         {/* Ring 3 — Fine Dashed Latitude Ring */}
         <motion.div
           animate={{ rotateZ: 360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] rounded-full border border-dashed border-slate-300/40 pointer-events-none"
+          transition={{ duration: 42, repeat: Infinity, ease: "linear" }}
+          className="absolute w-[255px] h-[255px] sm:w-[285px] sm:h-[285px] rounded-full border border-dashed border-slate-300/50 pointer-events-none"
           style={{
             transform: "rotateX(62deg)",
           }}
         />
 
-        {/* ── Floating Atmospheric Particles ── */}
+        {/* ── Subtle Atmospheric Particles ── */}
         {[
-          { x: -90, y: -80, size: 3, delay: 0, dur: 5 },
-          { x: 100, y: -65, size: 2.5, delay: 1, dur: 6.5 },
-          { x: -110, y: 70, size: 2, delay: 2, dur: 7 },
-          { x: 95, y: 85, size: 3.5, delay: 1.5, dur: 5.5 },
-          { x: 0, y: -120, size: 2, delay: 0.5, dur: 8 },
+          { x: -85, y: -75, size: 2.5, delay: 0, dur: 5.5 },
+          { x: 95, y: -65, size: 2, delay: 1, dur: 7 },
+          { x: -100, y: 70, size: 2, delay: 2, dur: 7.5 },
+          { x: 90, y: 80, size: 2.5, delay: 1.5, dur: 6 },
+          { x: 0, y: -115, size: 2, delay: 0.5, dur: 8.5 },
         ].map((p, idx) => (
           <motion.div
             key={idx}
             animate={{
-              y: [p.y - 8, p.y + 8, p.y - 8],
-              opacity: [0.3, 0.8, 0.3],
+              y: [p.y - 6, p.y + 6, p.y - 6],
+              opacity: [0.25, 0.7, 0.25],
             }}
             transition={{
               duration: p.dur,
@@ -187,78 +343,78 @@ export default function HeroOrb() {
               width: p.size,
               height: p.size,
               transform: `translate(${p.x}px, ${p.y}px)`,
-              boxShadow: "0 0 6px rgba(59,130,246,0.6)",
+              boxShadow: "0 0 6px rgba(59,130,246,0.5)",
             }}
           />
         ))}
 
-        {/* ── The Main 3D Glassmorphism Orb ── */}
+        {/* ── Glassmorphism Central Sphere (270px Diameter) ── */}
         <motion.div
           animate={{
-            y: [-5, 5, -5],
+            y: [-4, 4, -4],
           }}
           transition={{
             duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full flex items-center justify-center overflow-hidden backdrop-blur-xl transition-all duration-300"
+          className="relative w-52 h-52 sm:w-60 sm:h-60 md:w-[270px] md:h-[270px] rounded-full flex items-center justify-center overflow-hidden backdrop-blur-xl transition-all duration-300"
           style={{
             background:
-              "radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.5) 22%, rgba(240, 246, 255, 0.35) 45%, rgba(59, 130, 246, 0.12) 70%, rgba(30, 58, 138, 0.22) 100%)",
+              "radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.65) 22%, rgba(240, 246, 255, 0.4) 45%, rgba(59, 130, 246, 0.14) 70%, rgba(30, 58, 138, 0.22) 100%)",
             boxShadow:
-              "inset 0 0 35px rgba(255,255,255,0.8), inset 0 0 60px rgba(59,130,246,0.18), inset 0 -20px 40px rgba(30,58,138,0.22), 0 24px 60px -12px rgba(30,58,138,0.18), 0 10px 20px -5px rgba(0,0,0,0.04)",
-            border: "1px solid rgba(255, 255, 255, 0.85)",
+              "inset 0 0 30px rgba(255,255,255,0.9), inset 0 0 50px rgba(59,130,246,0.18), inset 0 -18px 36px rgba(30,58,138,0.2), 0 20px 50px -10px rgba(30,58,138,0.15), 0 8px 16px -4px rgba(0,0,0,0.03)",
+            border: "1px solid rgba(255, 255, 255, 0.9)",
           }}
         >
-          {/* Specular Light Reflection Sheen (Top Left) */}
+          {/* Specular Reflection Sheen */}
           <motion.div
-            className="absolute -top-6 -left-6 w-36 h-36 rounded-full bg-gradient-to-br from-white/90 via-white/40 to-transparent blur-md pointer-events-none"
+            className="absolute -top-5 -left-5 w-36 h-36 rounded-full bg-gradient-to-br from-white/90 via-white/40 to-transparent blur-md pointer-events-none"
             style={{
               left: lightSheenX,
               top: lightSheenY,
             }}
           />
 
-          {/* Internal Soft Energy Core */}
-          <div className="absolute w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-radial from-blue-400/20 via-navy/10 to-transparent blur-xl pointer-events-none" />
+          {/* Internal Core Illumination */}
+          <div className="absolute w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-radial from-blue-400/20 via-navy/10 to-transparent blur-lg pointer-events-none" />
 
-          {/* ── Rotating Stack of Technologies (Centered Inside Orb) ── */}
-          <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
+          {/* ── Engineering Mindset: Personal Identity Showcase ── */}
+          <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-[220px]">
             <div className="flex items-center gap-1.5 mb-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-              <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.2em] uppercase text-slate-500 font-medium">
-                System Stack
+              <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-slate-500 font-semibold">
+                ENGINEERING MINDSET
               </span>
             </div>
 
-            <div className="h-10 sm:h-12 flex items-center justify-center">
+            <div className="h-12 sm:h-14 flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={techIndex}
-                  initial={{ opacity: 0, y: 10, scale: 0.95, filter: "blur(4px)" }}
-                  animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -10, scale: 0.95, filter: "blur(4px)" }}
+                  key={slideIndex}
+                  initial={{ opacity: 0, scale: 0.96, y: 6 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.96, y: -6 }}
                   transition={{ duration: 0.45, ease: "easeOut" }}
                   className="flex flex-col items-center"
                 >
-                  <h3 className="font-serif text-2xl sm:text-3xl text-navy font-semibold tracking-tight">
-                    {TECH_STACK[techIndex].name}
+                  <h3 className="font-serif text-2xl sm:text-[25px] text-navy font-bold tracking-tight">
+                    {IDENTITY_SLIDES[slideIndex].title}
                   </h3>
-                  <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium tracking-wide mt-0.5">
-                    {TECH_STACK[techIndex].category}
+                  <span className="text-[11.5px] sm:text-[12px] text-slate-600 font-medium tracking-wide mt-0.5 whitespace-nowrap">
+                    {IDENTITY_SLIDES[slideIndex].subtitle}
                   </span>
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* Pagination Dots for Tech Items */}
-            <div className="flex items-center gap-1.5 mt-2.5">
-              {TECH_STACK.map((_, i) => (
+            {/* Pagination Dots */}
+            <div className="flex items-center gap-1.5 mt-2">
+              {IDENTITY_SLIDES.map((_, i) => (
                 <span
                   key={i}
                   className={`h-1 rounded-full transition-all duration-300 ${
-                    i === techIndex
+                    i === slideIndex
                       ? "w-4 bg-navy"
                       : "w-1 bg-slate-300/80"
                   }`}
@@ -269,89 +425,113 @@ export default function HeroOrb() {
         </motion.div>
       </motion.div>
 
-      {/* ── 4 Floating Principles Surrounding the Orb ── */}
+      {/* ── 4 Connected Quadrant Labels (Positioned on Exact Radial Rays) ── */}
 
-      {/* 1. BUILD — Top Left */}
+      {/* 1. BACKEND / FastAPI — Top Left (135° Radial Ray) */}
       <motion.div
-        initial={{ opacity: 0, y: 8 }}
+        initial={{ opacity: 0, y: 4 }}
         animate={{
           opacity: 1,
-          y: [-4, 4, -4],
+          y: [-2, 2, -2],
         }}
         transition={{
           opacity: { duration: 0.6, delay: 0.2 },
           y: { duration: 7, repeat: Infinity, ease: "easeInOut" },
         }}
-        className="absolute top-3 left-2 sm:left-4 flex flex-col items-start"
+        onMouseEnter={() => setActivePillar("backend")}
+        onMouseLeave={() => setActivePillar(null)}
+        className="absolute top-10 left-3 sm:top-11 sm:left-6 flex flex-col items-start cursor-pointer transition-all duration-200"
       >
-        <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-[0.22em] text-navy">
-          BUILD
+        <span
+          className={`text-xs sm:text-[13px] font-bold tracking-[0.2em] leading-tight transition-colors duration-200 ${
+            activePillar === "backend" ? "text-blue-600" : "text-navy/85"
+          }`}
+        >
+          BACKEND
         </span>
-        <span className="text-[9px] sm:text-[10px] text-slate-400 tracking-wider">
-          Architecture
+        <span className="text-[10px] sm:text-[11px] font-normal text-slate-400 tracking-wider mt-0.5">
+          FastAPI
         </span>
       </motion.div>
 
-      {/* 2. CREATE — Top Right */}
+      {/* 2. AI / DecisionOS — Top Right (45° Radial Ray) */}
       <motion.div
-        initial={{ opacity: 0, y: -8 }}
+        initial={{ opacity: 0, y: -4 }}
         animate={{
           opacity: 1,
-          y: [4, -4, 4],
+          y: [2, -2, 2],
         }}
         transition={{
           opacity: { duration: 0.6, delay: 0.35 },
           y: { duration: 8.5, repeat: Infinity, ease: "easeInOut" },
         }}
-        className="absolute top-3 right-2 sm:right-4 flex flex-col items-end text-right"
+        onMouseEnter={() => setActivePillar("ai")}
+        onMouseLeave={() => setActivePillar(null)}
+        className="absolute top-10 right-3 sm:top-11 sm:right-6 flex flex-col items-end text-right cursor-pointer transition-all duration-200"
       >
-        <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-[0.22em] text-navy">
-          CREATE
+        <span
+          className={`text-xs sm:text-[13px] font-bold tracking-[0.2em] leading-tight transition-colors duration-200 ${
+            activePillar === "ai" ? "text-blue-600" : "text-navy/85"
+          }`}
+        >
+          AI
         </span>
-        <span className="text-[9px] sm:text-[10px] text-slate-400 tracking-wider">
-          Platforms
+        <span className="text-[10px] sm:text-[11px] font-normal text-slate-400 tracking-wider mt-0.5">
+          DecisionOS
         </span>
       </motion.div>
 
-      {/* 3. SOLVE — Bottom Left */}
+      {/* 3. DATA / PostgreSQL — Bottom Left (225° Radial Ray) */}
       <motion.div
-        initial={{ opacity: 0, y: 8 }}
+        initial={{ opacity: 0, y: 4 }}
         animate={{
           opacity: 1,
-          y: [4, -4, 4],
+          y: [2, -2, 2],
         }}
         transition={{
           opacity: { duration: 0.6, delay: 0.5 },
           y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
         }}
-        className="absolute bottom-3 left-2 sm:left-4 flex flex-col items-start"
+        onMouseEnter={() => setActivePillar("data")}
+        onMouseLeave={() => setActivePillar(null)}
+        className="absolute bottom-10 left-3 sm:bottom-11 sm:left-6 flex flex-col items-start cursor-pointer transition-all duration-200"
       >
-        <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-[0.22em] text-navy">
-          SOLVE
+        <span
+          className={`text-xs sm:text-[13px] font-bold tracking-[0.2em] leading-tight transition-colors duration-200 ${
+            activePillar === "data" ? "text-blue-600" : "text-navy/85"
+          }`}
+        >
+          DATA
         </span>
-        <span className="text-[9px] sm:text-[10px] text-slate-400 tracking-wider">
-          Algorithms
+        <span className="text-[10px] sm:text-[11px] font-normal text-slate-400 tracking-wider mt-0.5">
+          PostgreSQL
         </span>
       </motion.div>
 
-      {/* 4. SCALE — Bottom Right */}
+      {/* 4. UI / React — Bottom Right (315° Radial Ray) */}
       <motion.div
-        initial={{ opacity: 0, y: -8 }}
+        initial={{ opacity: 0, y: -4 }}
         animate={{
           opacity: 1,
-          y: [-5, 5, -5],
+          y: [-2, 2, -2],
         }}
         transition={{
           opacity: { duration: 0.6, delay: 0.65 },
           y: { duration: 9, repeat: Infinity, ease: "easeInOut" },
         }}
-        className="absolute bottom-3 right-2 sm:right-4 flex flex-col items-end text-right"
+        onMouseEnter={() => setActivePillar("ui")}
+        onMouseLeave={() => setActivePillar(null)}
+        className="absolute bottom-10 right-3 sm:bottom-11 sm:right-6 flex flex-col items-end text-right cursor-pointer transition-all duration-200"
       >
-        <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-[0.22em] text-navy">
-          SCALE
+        <span
+          className={`text-xs sm:text-[13px] font-bold tracking-[0.2em] leading-tight transition-colors duration-200 ${
+            activePillar === "ui" ? "text-blue-600" : "text-navy/85"
+          }`}
+        >
+          UI
         </span>
-        <span className="text-[9px] sm:text-[10px] text-slate-400 tracking-wider">
-          Performance
+        <span className="text-[10px] sm:text-[11px] font-normal text-slate-400 tracking-wider mt-0.5">
+          React
         </span>
       </motion.div>
     </div>
