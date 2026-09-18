@@ -24,7 +24,7 @@ export const heroData = {
 export const aboutData = {
   title: "About Me",
   content:
-    "I am a Computer Science Engineering student passionate about backend development, system design, databases, and AI-driven platforms. My focus is on building scalable software systems and preparing for software engineering roles through consistent DSA practice and real-world project development.",
+    "I build scalable backend systems, modern web applications, and AI-powered platforms with a focus on clean architecture and long-term maintainability. Through projects like AVELIS and DecisionOS, I explore backend engineering, system design, databases, and real-world product development. My goal is to create reliable software that transforms complex ideas into practical solutions.",
 };
 
 export const currentFocusData = [
