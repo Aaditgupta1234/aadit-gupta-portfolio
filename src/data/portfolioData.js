@@ -158,21 +158,12 @@ export const skillsData = [
 export const journeyData = [
   {
     year: "2024",
-    badge: "Education",
+    badge: "Foundation",
     icon: "GraduationCap",
-    title: "Started B.E. Computer Science",
+    title: "Computer Science & Systems Grounding",
     organization: "Chitkara University",
     description:
-      "Began my Computer Science journey at Chitkara University, building strong foundations in Java, Object-Oriented Programming, Database Management Systems, SQL, and problem solving.",
-  },
-  {
-    year: "2025",
-    badge: "Leadership",
-    icon: "Users",
-    title: "Executive Member — Coding Ninjas CUIET",
-    organization: "Student Technical Community",
-    description:
-      "Selected as an Executive Member to lead campus technical initiatives, coordinate algorithmic contests, and mentor student developers in problem solving.",
+      "Commenced B.E. in Computer Science. Built disciplined core foundations in Java, Object-Oriented Architecture, Database Management Systems, and Relational SQL.",
   },
   {
     year: "2025",
@@ -184,10 +175,20 @@ export const journeyData = [
       "Co-engineered FESTFY XR in an intensive team sprint. Designed the interactive experience, pitched live to industry judges, and advanced to the final round.",
   },
   {
+    year: "2025",
+    badge: "Leadership",
+    icon: "Users",
+    title: "Executive Member — Coding Ninjas CUIET",
+    organization: "Student Technical Community",
+    description:
+      "Selected as an Executive Member to lead campus technical initiatives, coordinate algorithmic contests, and mentor student developers in problem solving.",
+  },
+  {
     year: "2025–2026",
-    badge: "Production System",
+    badge: "Flagship Project",
+    isFlagship: true,
     icon: "Layers",
-    title: "Built & Deployed AVELIS",
+    title: "Architected & Deployed AVELIS",
     organization: "Flagship Full-Stack Platform",
     description:
       "Built and deployed AVELIS, a full-stack digital library platform featuring JWT authentication, role-based access control, PostgreSQL, Prisma ORM, and a modern React frontend.",
@@ -196,16 +197,16 @@ export const journeyData = [
     year: "2026",
     badge: "Problem Solving",
     icon: "Code2",
-    title: "600+ LeetCode Submissions & Problem Solving",
-    organization: "Algorithmic Practice",
+    title: "600+ Algorithmic Practice Milestones",
+    organization: "LeetCode & Competitive Platforms",
     description:
       "Maintained consistent data structures and algorithms practice through 600+ LeetCode submissions, strengthening problem-solving skills and technical interview readiness.",
   },
   {
     year: "2026",
-    badge: "AI & Backend",
+    badge: "AI Architecture",
     icon: "Sparkles",
-    title: "Building DecisionOS",
+    title: "Architecting DecisionOS",
     organization: "AI Business Intelligence Platform",
     description:
       "Engineering an explainable diagnostics engine using FastAPI, Python, and PostgreSQL to isolate KPI anomalies and deliver automated business recommendations.",
