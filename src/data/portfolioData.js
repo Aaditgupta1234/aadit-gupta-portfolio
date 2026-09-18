@@ -31,31 +31,12 @@ export const aboutData = {
 
 export const projectsData = [
   {
-    title: "DecisionOS",
-    badge: "AI & Systems Project",
-    tagline: "AI-Assisted Business Diagnostics & KPI Engine",
-    description:
-      "Analytical platform prototype that ingests structured business datasets, aggregates operational KPIs, and executes root-cause attribution algorithms to generate explainable diagnostic reports for decision-making.",
-    highlights: [
-      "KPI Analytics Engine",
-      "Root Cause Attribution System",
-      "Explainable Diagnostics Pipeline",
-      "FastAPI Service Architecture",
-    ],
-    tech: ["FastAPI", "Python", "PostgreSQL", "SQLAlchemy", "Pandas", "React"],
-    previewUrl: "decisionos.internal/diagnostics",
-    links: {
-      demo: "#",
-      github: "https://github.com/Aaditgupta1234",
-    },
-    flagship: true,
-  },
-  {
     title: "AVELIS",
-    badge: "Full-Stack Project",
-    tagline: "Full-Stack Library Management System",
+    badge: "Flagship System",
+    status: "Production Deployed",
+    tagline: "Full-Stack Library Management & Circulation Platform",
     description:
-      "Full-stack digital library management system designed to streamline catalog administration, borrowing workflows, inventory tracking, and role-based operations with transactional data integrity.",
+      "Architected a digital library system managing catalog inventories, circulation lifecycles, and member operations with transactional data integrity and multi-tier access control.",
     highlights: [
       "JWT Authentication & RBAC",
       "Prisma ORM & Transaction Handling",
@@ -68,7 +49,28 @@ export const projectsData = [
       demo: "#",
       github: "https://github.com/Aaditgupta1234",
     },
-    flagship: false,
+    featured: true,
+  },
+  {
+    title: "DecisionOS",
+    badge: "AI & Backend",
+    status: "Working Prototype",
+    tagline: "Automated Business Diagnostics & KPI Analytics Engine",
+    description:
+      "Engineered an analytical platform that ingests operational datasets to compute core KPIs, isolate metric anomalies, and deliver transparent root-cause diagnostics for executive decisions.",
+    highlights: [
+      "KPI Analytics Engine",
+      "Root Cause Attribution System",
+      "Explainable Diagnostics Pipeline",
+      "FastAPI Service Architecture",
+    ],
+    tech: ["FastAPI", "Python", "PostgreSQL", "SQLAlchemy", "Pandas", "React"],
+    previewUrl: "decisionos.internal/diagnostics",
+    links: {
+      demo: "#",
+      github: "https://github.com/Aaditgupta1234",
+    },
+    featured: false,
   },
 ];
 
