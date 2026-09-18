@@ -32,17 +32,19 @@ export const aboutData = {
 export const projectsData = [
   {
     title: "DecisionOS",
-    badge: "Flagship AI Platform",
-    tagline: "Explainable AI & Automated Business Diagnostics Platform",
+    badge: "AI & Backend Project",
+    tagline: "AI-Powered Business Diagnostics & KPI Engine",
     description:
-      "DecisionOS helps founders and leadership teams diagnose operational bottlenecks from raw business datasets. Built with FastAPI, PostgreSQL, and Pandas, it computes automated KPIs, executes root cause attribution algorithms, and generates explainable diagnostic reports to support data-backed decision-making.",
+      "DecisionOS is an analytical platform that processes structured business datasets to detect operational bottlenecks and explain metric anomalies. Built with FastAPI, PostgreSQL, SQLAlchemy, and Pandas, it calculates core KPIs, performs root-cause attribution, and generates structured, explainable diagnostic reports without black-box opacity.",
     highlights: [
-      "Autonomous KPI Computation Engine",
-      "Explainable Root Cause Diagnostics",
-      "PostgreSQL & SQLAlchemy Schema Design",
-      "Executive Diagnostic & Export Layer",
+      "KPI Analytics Engine",
+      "Root Cause Attribution System",
+      "Explainable Business Diagnostics",
+      "AI Recommendation Framework",
+      "PostgreSQL & SQLAlchemy Data Layer",
+      "FastAPI Service Architecture",
     ],
-    tech: ["FastAPI", "PostgreSQL", "SQLAlchemy", "React", "TypeScript", "Pandas", "Docker"],
+    tech: ["FastAPI", "Python", "PostgreSQL", "SQLAlchemy", "React", "TypeScript", "Pandas"],
     previewUrl: "decisionos.internal/diagnostics",
     links: {
       demo: "#",
@@ -53,16 +55,16 @@ export const projectsData = [
   {
     title: "AVELIS",
     badge: "Full-Stack Project",
-    tagline: "Full-Stack Library Management Platform",
+    tagline: "Full-Stack Library Management System",
     description:
-      "AVELIS is a full-stack library management platform designed to streamline catalog management, book circulation, and member operations. Built with React, Express.js, PostgreSQL, and Prisma ORM, it implements secure JWT authentication, role-based access control, inventory tracking, borrowing workflows, reservation management, and analytics dashboards while following production-oriented backend architecture practices.",
+      "AVELIS is a full-stack digital library management system designed for catalog administration, borrowing workflows, and user operations. Built with React, Express.js, PostgreSQL, and Prisma ORM, it implements JWT authentication, multi-tier RBAC, transactional inventory tracking, soft-delete operations, and RESTful APIs following MVC and service patterns.",
     highlights: [
       "JWT Authentication & RBAC",
-      "Book Catalog & Inventory Management",
-      "Loan, Return & Reservation Workflows",
+      "MVC + Service Architecture",
       "PostgreSQL Database Design",
       "Prisma ORM & Transaction Handling",
-      "MVC + Service Architecture",
+      "Book Catalog & Inventory Management",
+      "Loan, Return & Reservation Workflows",
     ],
     tech: ["React", "Node.js", "Express.js", "PostgreSQL", "Prisma ORM", "JWT Auth", "Supabase"],
     previewUrl: "avelis-library.vercel.app",

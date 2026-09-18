@@ -17,27 +17,27 @@ function DecisionOSMockup() {
           <Lock size={10} className="text-slate-400" />
           <span>decisionos.internal/diagnostics</span>
         </div>
-        <div className="flex items-center gap-1.5 text-[10px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>Live Model</span>
+        <div className="flex items-center gap-1.5 text-[10px] font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200/60">
+          <span className="w-1.5 h-1.5 rounded-full bg-navy animate-pulse" />
+          <span>Analytics Engine</span>
         </div>
       </div>
 
       {/* Mock Dashboard Body */}
       <div className="p-4 sm:p-5 bg-white flex flex-col gap-3">
-        {/* Top Metrics Row */}
+        {/* Top Architecture / Pipeline Status Row */}
         <div className="grid grid-cols-3 gap-2 sm:gap-3">
           <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">ARR Growth</p>
-            <p className="text-sm sm:text-base font-bold text-slate-800 tracking-tight">+16.4%</p>
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Dataset Ingestion</p>
+            <p className="text-sm font-bold text-slate-800 tracking-tight">Pandas & SQL</p>
           </div>
           <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Health Score</p>
-            <p className="text-sm sm:text-base font-bold text-navy tracking-tight">98.2 / 100</p>
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Analytics Engine</p>
+            <p className="text-sm font-bold text-navy tracking-tight">KPI Aggregation</p>
           </div>
           <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Risk Level</p>
-            <p className="text-sm sm:text-base font-bold text-emerald-600 tracking-tight">Low (0.02)</p>
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Diagnostics</p>
+            <p className="text-sm font-bold text-slate-800 tracking-tight">Root Cause Layer</p>
           </div>
         </div>
 
@@ -48,7 +48,7 @@ function DecisionOSMockup() {
             <div className="flex items-center justify-between pb-1.5 border-b border-gray-200/70 mb-2">
               <span className="text-[11px] font-semibold text-slate-800 flex items-center gap-1.5">
                 <Cpu size={12} className="text-navy" />
-                Root Cause Analysis
+                Root Cause Attribution
               </span>
               <span className="text-[9px] text-slate-500 font-mono bg-white px-1.5 py-0.5 rounded border border-gray-200">
                 FastAPI Core
@@ -56,57 +56,55 @@ function DecisionOSMockup() {
             </div>
 
             <div className="space-y-2.5">
-              {/* Issue 1 */}
+              {/* Factor 1 */}
               <div>
                 <div className="flex justify-between items-center text-[10px] mb-1">
                   <span className="font-medium text-slate-700">Database Read Contention</span>
-                  <span className="font-semibold text-slate-900 font-mono">84%</span>
+                  <span className="font-semibold text-slate-900 font-mono">Primary Driver</span>
                 </div>
                 <div className="h-1.5 bg-slate-200/80 rounded-full overflow-hidden">
-                  <div className="h-full bg-navy rounded-full" style={{ width: "84%" }} />
+                  <div className="h-full bg-navy rounded-full" style={{ width: "80%" }} />
                 </div>
               </div>
 
-              {/* Issue 2 */}
+              {/* Factor 2 */}
               <div>
                 <div className="flex justify-between items-center text-[10px] mb-1">
                   <span className="font-medium text-slate-700">Cache Miss Ratio</span>
-                  <span className="font-semibold text-slate-900 font-mono">32%</span>
+                  <span className="font-semibold text-slate-900 font-mono">Secondary Factor</span>
                 </div>
                 <div className="h-1.5 bg-slate-200/80 rounded-full overflow-hidden">
-                  <div className="h-full bg-slate-400 rounded-full" style={{ width: "32%" }} />
+                  <div className="h-full bg-slate-400 rounded-full" style={{ width: "35%" }} />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Panel: AI Diagnosis */}
+          {/* Right Panel: Explainable Diagnostics Output */}
           <div className="sm:col-span-6 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-3 flex flex-col justify-between">
             <div className="flex items-center justify-between pb-1.5 border-b border-gray-200/70 mb-2">
               <span className="text-[11px] font-semibold text-slate-800 flex items-center gap-1.5">
                 <Sparkles size={12} className="text-navy" />
-                AI Diagnosis
+                Explainable Diagnostics
               </span>
               <span className="text-[9px] bg-blue-50 text-navy font-semibold px-1.5 py-0.5 rounded border border-blue-200/60 font-mono">
-                96.8% Confidence
+                Rule Engine
               </span>
             </div>
 
             {/* Structured Information Cards */}
             <div className="space-y-1.5 text-[10px]">
               <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
-                <span className="text-slate-500 font-medium">Primary Cause</span>
-                <span className="font-semibold text-slate-800 truncate max-w-[125px] sm:max-w-[135px]">Read Contention</span>
+                <span className="text-slate-500 font-medium">Anomaly Type</span>
+                <span className="font-semibold text-slate-800">Resource Contention</span>
               </div>
               <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
-                <span className="text-slate-500 font-medium">Business Impact</span>
-                <span className="font-semibold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded text-[9px] border border-amber-200/60">
-                  High
-                </span>
+                <span className="text-slate-500 font-medium">Data Layer</span>
+                <span className="font-semibold text-slate-800 font-mono text-[9.5px]">PostgreSQL + SQLAlchemy</span>
               </div>
               <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
-                <span className="text-slate-500 font-medium">Action</span>
-                <span className="font-semibold text-navy font-mono text-[9.5px]">Scale Replicas</span>
+                <span className="text-slate-500 font-medium">Recommended Action</span>
+                <span className="font-semibold text-navy font-mono text-[9.5px]">Scale Read Replicas</span>
               </div>
             </div>
           </div>
@@ -141,16 +139,16 @@ function AvelisMockup() {
         {/* Metric Row */}
         <div className="grid grid-cols-3 gap-2 sm:gap-3">
           <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Catalog</p>
-            <p className="text-sm sm:text-base font-bold text-slate-800 tracking-tight">Inventory Tracked</p>
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Catalog Layer</p>
+            <p className="text-sm font-bold text-slate-800 tracking-tight">PostgreSQL / Prisma</p>
           </div>
           <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
             <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Circulation</p>
-            <p className="text-sm sm:text-base font-bold text-navy tracking-tight">Borrow & Return</p>
+            <p className="text-sm font-bold text-navy tracking-tight">Borrow & Return</p>
           </div>
           <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
             <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Access Control</p>
-            <p className="text-sm sm:text-base font-bold text-emerald-600 tracking-tight">Admin / Member</p>
+            <p className="text-sm font-bold text-slate-800 tracking-tight">Admin / Member</p>
           </div>
         </div>
 
@@ -195,8 +193,8 @@ function AvelisMockup() {
             {/* Structured Information Cards */}
             <div className="space-y-1.5 text-[10px]">
               <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
-                <span className="text-slate-500 font-medium">Structure</span>
-                <span className="font-semibold text-slate-800">MVC + Service Layer</span>
+                <span className="text-slate-500 font-medium">Layering</span>
+                <span className="font-semibold text-slate-800">Controller &rarr; Service &rarr; DB</span>
               </div>
               <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
                 <span className="text-slate-500 font-medium">Transactions</span>
