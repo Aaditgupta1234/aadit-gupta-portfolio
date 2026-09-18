@@ -167,21 +167,21 @@ export const journeyData = [
   },
   {
     year: "2025",
-    badge: "Hackathon",
-    icon: "Trophy",
-    title: "Hackathon Finalist — SATHACK",
-    organization: "Thapar University",
-    description:
-      "Co-engineered FESTFY XR in an intensive team sprint. Designed the interactive experience, pitched live to industry judges, and advanced to the final round.",
-  },
-  {
-    year: "2025",
     badge: "Leadership",
     icon: "Users",
     title: "Executive Member — Coding Ninjas CUIET",
     organization: "Student Technical Community",
     description:
       "Selected as an Executive Member to lead campus technical initiatives, coordinate algorithmic contests, and mentor student developers in problem solving.",
+  },
+  {
+    year: "2025",
+    badge: "Hackathon",
+    icon: "Trophy",
+    title: "Hackathon Finalist — SATHACK",
+    organization: "Thapar University",
+    description:
+      "Co-engineered FESTFY XR in an intensive team sprint. Designed the interactive experience, pitched live to industry judges, and advanced to the final round.",
   },
   {
     year: "2025–2026",
