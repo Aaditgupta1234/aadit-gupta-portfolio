@@ -104,7 +104,7 @@ export default function Hero() {
               />
             </motion.a>
             <motion.a
-              href="#"
+              href="/Aadit_Gupta_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -2, scale: 1.02 }}

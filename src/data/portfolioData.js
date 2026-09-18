@@ -219,7 +219,7 @@ export const contactData = {
   description:
     "Focused on full-stack development, backend engineering, and scalable software systems. Currently building production-ready applications while strengthening problem-solving and system design skills.",
   email: "aaditgupta2006@gmail.com",
-  resumeUrl: "#",
+  resumeUrl: "/Aadit_Gupta_Resume.pdf",
   links: {
     github: "https://github.com/Aaditgupta1234",
     linkedin: "https://www.linkedin.com/in/aadit-gupta-028385327/",

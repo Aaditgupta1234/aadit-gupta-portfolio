@@ -53,7 +53,7 @@ export default function Navbar() {
 
         {/* Resume Button (Desktop) */}
         <motion.a
-          href="#"
+          href="/Aadit_Gupta_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           variants={buttonHoverVariants}
@@ -105,7 +105,7 @@ export default function Navbar() {
                 );
               })}
               <a
-                href="#"
+                href="/Aadit_Gupta_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-navy rounded-lg w-fit"
