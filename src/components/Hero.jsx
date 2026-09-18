@@ -82,9 +82,32 @@ export default function Hero() {
             </p>
           </motion.div>
 
-          {/* 4. CTA Action Buttons */}
+          {/* 4. Tech Pills & Tags */}
           <motion.div
             custom={3}
+            variants={fadeUpVariant}
+            initial="hidden"
+            animate="visible"
+            className="mb-6"
+          >
+            <p className="text-[11px] tracking-wide text-text-secondary font-medium uppercase mb-2.5">
+              {heroData.tags}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {heroData.techPills.map((pill) => (
+                <span
+                  key={pill}
+                  className="px-3 py-1 text-xs font-medium text-pill-text bg-pill rounded-full border border-border"
+                >
+                  {pill}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* 5. CTA Action Buttons */}
+          <motion.div
+            custom={4}
             variants={fadeUpVariant}
             initial="hidden"
             animate="visible"
@@ -117,13 +140,13 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* 5. Social Links */}
+          {/* 6. Social Links */}
           <motion.div
-            custom={4}
+            custom={5}
             variants={fadeUpVariant}
             initial="hidden"
             animate="visible"
-            className="flex items-center gap-4 text-sm mb-5"
+            className="flex items-center gap-4 text-sm"
           >
             <motion.a
               href={heroData.socials.github}
@@ -160,28 +183,6 @@ export default function Hero() {
               <LinkedinIcon size={16} />
               LinkedIn
             </motion.a>
-          </motion.div>
-
-          {/* 6. Tech Pills & Tags */}
-          <motion.div
-            custom={5}
-            variants={fadeUpVariant}
-            initial="hidden"
-            animate="visible"
-          >
-            <p className="text-[11px] tracking-wide text-text-secondary font-medium uppercase mb-2.5">
-              {heroData.tags}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {heroData.techPills.map((pill) => (
-                <span
-                  key={pill}
-                  className="px-3 py-1 text-xs font-medium text-pill-text bg-pill rounded-full border border-border"
-                >
-                  {pill}
-                </span>
-              ))}
-            </div>
           </motion.div>
         </div>
 

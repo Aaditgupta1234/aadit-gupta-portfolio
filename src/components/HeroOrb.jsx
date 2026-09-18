@@ -3,14 +3,14 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from
 
 const IDENTITY_SLIDES = [
   {
-    title: "DecisionOS",
-    subtitle: "Explainable AI Platform",
-    tag: "Flagship AI Architecture",
-  },
-  {
     title: "AVELIS",
     subtitle: "Digital Library Platform",
     tag: "Production-Grade System",
+  },
+  {
+    title: "DecisionOS",
+    subtitle: "Explainable AI Platform",
+    tag: "Flagship AI Architecture",
   },
   {
     title: "Backend Systems",

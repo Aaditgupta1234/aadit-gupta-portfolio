@@ -1,32 +1,31 @@
 export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
   { label: "Skills", href: "#skills" },
   { label: "Journey", href: "#journey" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const heroData = {
-  label: "UI-FOCUSED FULL-STACK DEVELOPER",
+  label: "SOFTWARE ENGINEER",
   name: "Aadit Gupta",
-  quote: "Crafting interfaces that inspire and systems that scale.",
-  subtitle: "UI-Focused Full-Stack Developer · Systems Engineer",
-  bio: "Designing clean, modern user interfaces inspired by Apple, Linear, and Stripe—backed by production-grade full-stack and backend engineering.",
-  tags: "UI/UX Engineering  |  Full-Stack Web Apps  |  Production Systems",
-  techPills: ["React", "TypeScript", "Tailwind CSS", "FastAPI", "Node.js", "PostgreSQL"],
+  quote: "Building systems that turn data into decisions.",
+  subtitle: "Software Engineer · Backend Developer",
+  bio: "Building production-grade systems, explainable AI platforms, and scalable backend architectures.",
+  tags: "BE CSE | BACKEND DEVELOPER | PROBLEM SOLVER",
+  techPills: ["Java", "Python", "FastAPI", "PostgreSQL", "React", "TypeScript"],
   socials: {
     github: "https://github.com/Aaditgupta1234",
-    linkedin: "https://www.linkedin.com/in/aadit-gupta-028385327/",
     leetcode: "https://leetcode.com/u/AaditGupta_1234/",
+    linkedin: "https://www.linkedin.com/in/aadit-gupta-028385327/",
   },
 };
 
 export const aboutData = {
   title: "About Me",
   paragraphs: [
-    "I am a UI-focused full-stack developer who blends clean, typography-driven product design with robust backend engineering. My work is heavily inspired by the minimal, intentional aesthetics of Apple, Linear, Stripe, and Notion.",
-    "Whether designing high-converting landing pages and business websites or architecting full-stack web applications like AVELIS and DecisionOS, I focus on pixel-level precision, snappy performance, and maintainable code for both freelance clients and engineering teams.",
+    "I am a software engineering student with a strong focus on backend systems, system design, and scalable architectures. I enjoy designing clean database schemas, building high-throughput APIs, and turning complex problem statements into production-ready software.",
+    "My hands-on experience spans from architecting full-stack applications with strict transactional integrity like AVELIS to engineering automated business intelligence and explainable decision systems like DecisionOS. I thrive at the intersection of data-driven backends and clean, responsive interfaces.",
   ],
 };
 
