@@ -214,11 +214,12 @@ export const journeyData = [
 ];
 
 export const contactData = {
-  badge: "AVAILABILITY & CONTACT",
-  headline: "Have a project, freelance opportunity, or engineering role in mind?",
-  supportingText:
-    "Currently available for freelance web development projects, UI-focused website builds, internships, and software engineering opportunities.",
+  badge: "LET'S CONNECT",
+  headline: "Building software with purpose.",
+  description:
+    "Focused on full-stack development, backend engineering, and scalable software systems. Currently building production-ready applications while strengthening problem-solving and system design skills.",
   email: "aaditgupta2006@gmail.com",
+  resumeUrl: "#",
   links: {
     github: "https://github.com/Aaditgupta1234",
     linkedin: "https://www.linkedin.com/in/aadit-gupta-028385327/",
