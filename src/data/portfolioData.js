@@ -44,10 +44,10 @@ export const projectsData = [
       "Catalog & Loan Management Workflows",
     ],
     tech: ["React", "Node.js", "Express.js", "PostgreSQL", "Prisma ORM", "JWT Auth"],
-    previewUrl: "avelis-library.vercel.app",
+    previewUrl: "avelis-alpha.vercel.app",
     links: {
-      demo: "#",
-      github: "https://github.com/Aaditgupta1234",
+      demo: "https://avelis-alpha.vercel.app/",
+      github: "https://github.com/Aaditgupta1234/AVELIS",
     },
     featured: true,
   },
@@ -68,7 +68,7 @@ export const projectsData = [
     previewUrl: "decisionos.internal/diagnostics",
     links: {
       demo: "#",
-      github: "https://github.com/Aaditgupta1234",
+      github: "https://github.com/Aaditgupta1234/DecisionOS",
     },
     featured: false,
   },

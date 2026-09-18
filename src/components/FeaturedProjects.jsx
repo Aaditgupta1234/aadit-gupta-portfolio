@@ -119,7 +119,7 @@ function AvelisMockup() {
         </div>
         <div className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-white border border-gray-200/80 text-[9.5px] text-slate-500 font-mono">
           <Lock size={8.5} className="text-slate-400" />
-          <span>avelis-library.vercel.app</span>
+          <span>avelis-alpha.vercel.app</span>
         </div>
         <div className="flex items-center gap-1 text-[8.5px] font-medium text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-full border border-emerald-200/60">
           <ShieldCheck size={9.5} className="text-emerald-700" />
