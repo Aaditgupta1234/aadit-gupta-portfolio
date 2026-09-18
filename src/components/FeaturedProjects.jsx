@@ -128,7 +128,7 @@ function AvelisMockup() {
         </div>
         <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white border border-gray-200/80 text-[11px] text-slate-500 font-mono">
           <Lock size={10} className="text-slate-400" />
-          <span>avelis.platform/admin/catalog</span>
+          <span>avelis-library.vercel.app</span>
         </div>
         <div className="flex items-center gap-1.5 text-[10px] font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200/60">
           <ShieldCheck size={11} className="text-navy" />
@@ -141,36 +141,71 @@ function AvelisMockup() {
         {/* Metric Row */}
         <div className="grid grid-cols-3 gap-2 sm:gap-3">
           <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Catalog Assets</p>
-            <p className="text-sm sm:text-base font-bold text-slate-800 tracking-tight">18,450 <span className="text-[10px] font-normal text-slate-500">vols</span></p>
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Catalog</p>
+            <p className="text-sm sm:text-base font-bold text-slate-800 tracking-tight">Inventory Tracked</p>
           </div>
           <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Active Loans</p>
-            <p className="text-sm sm:text-base font-bold text-navy tracking-tight">1,284 <span className="text-[10px] font-normal text-emerald-600">Sync</span></p>
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Circulation</p>
+            <p className="text-sm sm:text-base font-bold text-navy tracking-tight">Borrow & Return</p>
           </div>
           <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">PostgreSQL Pool</p>
-            <p className="text-sm sm:text-base font-bold text-emerald-600 tracking-tight">Healthy</p>
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Access Control</p>
+            <p className="text-sm sm:text-base font-bold text-emerald-600 tracking-tight">Admin / Member</p>
           </div>
         </div>
 
-        {/* Live Inventory Table Stream */}
-        <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-3 min-h-[96px] flex flex-col justify-between">
-          <div className="flex items-center justify-between pb-1.5 border-b border-gray-200 mb-1.5">
-            <span className="text-[11px] font-semibold text-slate-700 flex items-center gap-1.5">
-              <Database size={12} className="text-navy" />
-              Relational Catalog Stream
-            </span>
-            <span className="text-[9px] text-slate-400 font-mono">Prisma v5.2</span>
-          </div>
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between text-[11px] bg-white px-2.5 py-1.5 rounded border border-gray-100">
-              <span className="font-medium text-slate-800 truncate max-w-[170px] sm:max-w-[210px]">Designing Data-Intensive Apps</span>
-              <span className="text-[9px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Available</span>
+        {/* Bottom Section Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-stretch">
+          {/* Left Panel: Catalog & Loan Workflows */}
+          <div className="sm:col-span-6 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-3 flex flex-col justify-between">
+            <div className="flex items-center justify-between pb-1.5 border-b border-gray-200/70 mb-2">
+              <span className="text-[11px] font-semibold text-slate-800 flex items-center gap-1.5">
+                <Database size={12} className="text-navy" />
+                Catalog & Circulation
+              </span>
+              <span className="text-[9px] text-slate-500 font-mono bg-white px-1.5 py-0.5 rounded border border-gray-200">
+                Prisma ORM
+              </span>
             </div>
-            <div className="flex items-center justify-between text-[11px] bg-white px-2.5 py-1.5 rounded border border-gray-100">
-              <span className="font-medium text-slate-800 truncate max-w-[170px] sm:max-w-[210px]">Database Internals & Storage</span>
-              <span className="text-[9px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">Reserved</span>
+
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between text-[10px] bg-white px-2 py-1.5 rounded border border-gray-200/70">
+                <span className="font-medium text-slate-800 truncate max-w-[120px] sm:max-w-[130px]">Designing Data-Intensive Apps</span>
+                <span className="text-[9px] font-semibold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200/50">Borrowed</span>
+              </div>
+              <div className="flex items-center justify-between text-[10px] bg-white px-2 py-1.5 rounded border border-gray-200/70">
+                <span className="font-medium text-slate-800 truncate max-w-[120px] sm:max-w-[130px]">Database Internals & Storage</span>
+                <span className="text-[9px] font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/50">Available</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Panel: Architecture & Data Integrity */}
+          <div className="sm:col-span-6 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-3 flex flex-col justify-between">
+            <div className="flex items-center justify-between pb-1.5 border-b border-gray-200/70 mb-2">
+              <span className="text-[11px] font-semibold text-slate-800 flex items-center gap-1.5">
+                <ShieldCheck size={12} className="text-navy" />
+                Backend Architecture
+              </span>
+              <span className="text-[9px] bg-blue-50 text-navy font-semibold px-1.5 py-0.5 rounded border border-blue-200/60 font-mono">
+                MVC Pattern
+              </span>
+            </div>
+
+            {/* Structured Information Cards */}
+            <div className="space-y-1.5 text-[10px]">
+              <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
+                <span className="text-slate-500 font-medium">Structure</span>
+                <span className="font-semibold text-slate-800">MVC + Service Layer</span>
+              </div>
+              <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
+                <span className="text-slate-500 font-medium">Transactions</span>
+                <span className="font-semibold text-slate-800 font-mono text-[9.5px]">Prisma Transactions</span>
+              </div>
+              <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
+                <span className="text-slate-500 font-medium">Security</span>
+                <span className="font-semibold text-navy font-mono text-[9.5px]">JWT & RBAC Middleware</span>
+              </div>
             </div>
           </div>
         </div>
