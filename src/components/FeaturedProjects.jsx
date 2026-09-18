@@ -1,176 +1,292 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Check } from "lucide-react";
+import { ExternalLink, Check, Lock, ShieldCheck, Cpu, Database } from "lucide-react";
 import { GithubIcon } from "./BrandIcons";
 import { projectsData } from "../data/portfolioData";
+
+function DecisionOSMockup() {
+  return (
+    <div className="bg-white border border-[#E5E7EB] rounded-xl overflow-hidden shadow-xs">
+      {/* Browser Bar */}
+      <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-gray-100 bg-[#F9FAFB]">
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#E5E7EB]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#E5E7EB]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#E5E7EB]" />
+        </div>
+        <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white border border-gray-200/80 text-[11px] text-slate-500 font-mono">
+          <Lock size={10} className="text-slate-400" />
+          <span>decisionos.internal/diagnostics</span>
+        </div>
+        <div className="flex items-center gap-1.5 text-[10px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <span>Live Model</span>
+        </div>
+      </div>
+
+      {/* Mock Dashboard Body */}
+      <div className="p-4 sm:p-5 bg-white flex flex-col gap-3">
+        {/* Metric Row */}
+        <div className="grid grid-cols-3 gap-2 sm:gap-3">
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">ARR Growth</p>
+            <p className="text-sm sm:text-base font-bold text-slate-800 tracking-tight">+16.4% <span className="text-[10px] font-normal text-emerald-600">YoY</span></p>
+          </div>
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Health Score</p>
+            <p className="text-sm sm:text-base font-bold text-navy tracking-tight">98.2 / 100</p>
+          </div>
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Anomaly Risk</p>
+            <p className="text-sm sm:text-base font-bold text-emerald-600 tracking-tight">Low (0.02)</p>
+          </div>
+        </div>
+
+        {/* Diagnosis & Root Cause Split */}
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-stretch">
+          {/* Root Cause Matrix */}
+          <div className="sm:col-span-7 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-3 flex flex-col justify-between">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[11px] font-semibold text-slate-700 flex items-center gap-1.5">
+                <Cpu size={12} className="text-navy" />
+                Root Cause Attribution
+              </span>
+              <span className="text-[9px] text-slate-400 font-mono">FastAPI Core</span>
+            </div>
+            <div className="space-y-2">
+              <div>
+                <div className="flex justify-between text-[10px] text-slate-600 mb-1">
+                  <span>Latency Regression</span>
+                  <span className="font-semibold text-slate-800">84% weight</span>
+                </div>
+                <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                  <div className="h-full bg-navy rounded-full" style={{ width: "84%" }} />
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between text-[10px] text-slate-600 mb-1">
+                  <span>Cache Miss Ratio</span>
+                  <span className="font-semibold text-slate-800">32% weight</span>
+                </div>
+                <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                  <div className="h-full bg-slate-400 rounded-full" style={{ width: "32%" }} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* AI Decision Summary */}
+          <div className="sm:col-span-5 bg-[#0F172A] text-white rounded-lg p-3 flex flex-col justify-between">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] font-semibold text-slate-300">AI Intelligence</span>
+              <span className="text-[9px] bg-white/10 text-emerald-300 px-1.5 py-0.5 rounded font-mono">96.8% Conf.</span>
+            </div>
+            <p className="text-[10px] sm:text-[11px] text-slate-200 leading-snug">
+              &ldquo;Scale database read replicas to eliminate write contention during peak execution cycles.&rdquo;
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AvelisMockup() {
+  return (
+    <div className="bg-white border border-[#E5E7EB] rounded-xl overflow-hidden shadow-xs">
+      {/* Browser Bar */}
+      <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-gray-100 bg-[#F9FAFB]">
+        <div className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#E5E7EB]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#E5E7EB]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#E5E7EB]" />
+        </div>
+        <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white border border-gray-200/80 text-[11px] text-slate-500 font-mono">
+          <Lock size={10} className="text-slate-400" />
+          <span>avelis.platform/admin/catalog</span>
+        </div>
+        <div className="flex items-center gap-1.5 text-[10px] font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200/60">
+          <ShieldCheck size={11} className="text-navy" />
+          <span>RBAC Protected</span>
+        </div>
+      </div>
+
+      {/* Mock Inventory Body */}
+      <div className="p-4 sm:p-5 bg-white flex flex-col gap-3">
+        {/* Metric Row */}
+        <div className="grid grid-cols-3 gap-2 sm:gap-3">
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Catalog Assets</p>
+            <p className="text-sm sm:text-base font-bold text-slate-800 tracking-tight">18,450 <span className="text-[10px] font-normal text-slate-500">vols</span></p>
+          </div>
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Active Loans</p>
+            <p className="text-sm sm:text-base font-bold text-navy tracking-tight">1,284 <span className="text-[10px] font-normal text-emerald-600">Sync</span></p>
+          </div>
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
+            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">PostgreSQL Pool</p>
+            <p className="text-sm sm:text-base font-bold text-emerald-600 tracking-tight">Healthy</p>
+          </div>
+        </div>
+
+        {/* Live Inventory Table Stream */}
+        <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-3">
+          <div className="flex items-center justify-between pb-2 border-b border-gray-200 mb-2">
+            <span className="text-[11px] font-semibold text-slate-700 flex items-center gap-1.5">
+              <Database size={12} className="text-navy" />
+              Relational Catalog Stream
+            </span>
+            <span className="text-[9px] text-slate-400 font-mono">Prisma v5.2</span>
+          </div>
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between text-[11px] bg-white px-2.5 py-1.5 rounded border border-gray-100">
+              <span className="font-medium text-slate-800 truncate max-w-[170px] sm:max-w-[210px]">Designing Data-Intensive Apps</span>
+              <span className="text-[9px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Available</span>
+            </div>
+            <div className="flex items-center justify-between text-[11px] bg-white px-2.5 py-1.5 rounded border border-gray-100">
+              <span className="font-medium text-slate-800 truncate max-w-[170px] sm:max-w-[210px]">Database Internals & Storage</span>
+              <span className="text-[9px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">Reserved</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function ProjectCard({ project, index }) {
   const isFlagship = project.flagship;
 
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.15, duration: 0.5 }}
-      className={`bg-white border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col ${
-        isFlagship ? "lg:col-span-2" : ""
-      }`}
+      transition={{ delay: index * 0.12, duration: 0.5, ease: "easeOut" }}
+      className="bg-white border border-[#E5E7EB] rounded-[22px] overflow-hidden hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] hover:border-[#D1D5DB] transition-all duration-300 flex flex-col justify-between"
     >
-      {/* Screenshot Placeholder */}
-      <div className="bg-canvas border-b border-border p-6">
-        <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-          {/* Browser Chrome */}
-          <div className="flex items-center gap-1.5 px-3 py-2 border-b border-gray-100 bg-gray-50/60">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-300" />
-            <span className="w-2.5 h-2.5 rounded-full bg-yellow-300" />
-            <span className="w-2.5 h-2.5 rounded-full bg-green-300" />
-            <span className="ml-3 text-[10px] text-text-secondary truncate flex-1">
-              {isFlagship ? "decisionos.app — KPI Dashboard" : "avelis.app — Digital Library"}
+      <div>
+        {/* Project Browser Mockup Preview */}
+        <div className="bg-[#F8FAFC] border-b border-[#E5E7EB] p-4 sm:p-6">
+          {isFlagship ? <DecisionOSMockup /> : <AvelisMockup />}
+        </div>
+
+        {/* Card Content */}
+        <div className="p-6 sm:p-8">
+          {/* Badge & Category */}
+          <div className="flex items-center gap-2 mb-3">
+            <span
+              className={`px-3 py-1 text-[11px] font-semibold tracking-wider uppercase rounded-full ${
+                isFlagship
+                  ? "bg-navy text-white shadow-xs"
+                  : "bg-blue-50 text-navy border border-blue-200/60"
+              }`}
+            >
+              {project.badge}
             </span>
           </div>
-          {/* Mock UI Content */}
-          {isFlagship ? (
-            <div className="p-5 min-h-[140px]">
-              <div className="grid grid-cols-3 gap-3 mb-4">
-                {[
-                  { label: "Revenue", val: "+12.4%", color: "text-green-600" },
-                  { label: "Efficiency", val: "87.2", color: "text-navy" },
-                  { label: "Risk Score", val: "Low", color: "text-emerald-600" },
-                ].map((kpi) => (
-                  <div key={kpi.label} className="bg-canvas rounded-lg p-3 border border-border">
-                    <p className="text-[10px] text-text-secondary mb-1">{kpi.label}</p>
-                    <p className={`text-lg font-semibold ${kpi.color}`}>{kpi.val}</p>
+
+          {/* Project Title & Tagline */}
+          <h3 className="font-serif text-2xl sm:text-3xl text-text-primary tracking-tight mb-1">
+            {project.title}
+          </h3>
+          <p className="text-xs sm:text-sm font-semibold text-navy tracking-wide mb-3">
+            {project.tagline}
+          </p>
+
+          {/* Description */}
+          <p className="text-sm text-text-secondary leading-relaxed mb-6">
+            {project.description}
+          </p>
+
+          {/* Architecture / Engineering Highlights */}
+          {project.highlights && project.highlights.length > 0 && (
+            <div className="mb-6 pt-5 border-t border-gray-100">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3">
+                Key Engineering Highlights
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+                {project.highlights.map((highlight) => (
+                  <div key={highlight} className="flex items-start gap-2">
+                    <Check size={14} className="text-navy flex-shrink-0 mt-0.5" />
+                    <span className="text-xs font-medium text-slate-700 leading-tight">
+                      {highlight}
+                    </span>
                   </div>
                 ))}
               </div>
-              <div className="flex gap-3">
-                <div className="flex-1 bg-canvas rounded-lg p-3 border border-border">
-                  <p className="text-[10px] text-text-secondary mb-2">Root Cause Breakdown</p>
-                  <div className="space-y-1.5">
-                    {["Supply Chain Delay", "Cost Overhead", "Market Shift"].map((item) => (
-                      <div key={item} className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-navy" />
-                        <span className="text-[10px] text-text-primary">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="w-1/3 bg-canvas rounded-lg p-3 border border-border">
-                  <p className="text-[10px] text-text-secondary mb-2">Intelligence</p>
-                  <div className="h-2 bg-navy/20 rounded-full mb-2">
-                    <div className="h-2 bg-navy rounded-full" style={{ width: "78%" }} />
-                  </div>
-                  <p className="text-[10px] text-text-secondary">78% confidence</p>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="p-5 min-h-[120px]">
-              <div className="flex gap-3 mb-3">
-                <div className="w-10 h-14 bg-navy/10 rounded" />
-                <div className="w-10 h-14 bg-blue-100 rounded" />
-                <div className="w-10 h-14 bg-navy/5 rounded" />
-                <div className="w-10 h-14 bg-blue-50 rounded" />
-                <div className="w-10 h-14 bg-navy/10 rounded hidden sm:block" />
-              </div>
-              <div className="h-2 bg-gray-100 rounded-full w-3/4 mb-1.5" />
-              <div className="h-2 bg-gray-100 rounded-full w-1/2" />
             </div>
           )}
-        </div>
-      </div>
 
-      {/* Content */}
-      <div className="p-6 flex-1 flex flex-col">
-        <div className="flex items-center gap-2 mb-3">
-          <span
-            className={`px-2.5 py-0.5 text-[10px] font-semibold tracking-wide uppercase rounded-full ${
-              isFlagship
-                ? "bg-navy text-white"
-                : "bg-pill text-pill-text"
-            }`}
-          >
-            {project.badge}
-          </span>
-        </div>
-
-        <h3 className="font-serif text-2xl text-text-primary mb-1">
-          {project.title}
-        </h3>
-        <p className="text-sm font-medium text-navy mb-3">
-          {project.tagline}
-        </p>
-        <p className="text-sm text-text-secondary leading-relaxed mb-4">
-          {project.description}
-        </p>
-
-        {/* Architecture Highlights (Flagship only) */}
-        {project.highlights.length > 0 && (
-          <div className="mb-4 grid grid-cols-2 gap-x-4 gap-y-1.5">
-            {project.highlights.map((h) => (
-              <div key={h} className="flex items-center gap-2">
-                <Check size={14} className="text-navy flex-shrink-0" />
-                <span className="text-xs font-medium text-text-primary">{h}</span>
-              </div>
-            ))}
+          {/* Tech Stack Pills */}
+          <div className="pt-4 border-t border-gray-100">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2.5">
+              Technologies & Infrastructure
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {project.tech.map((techItem) => (
+                <span
+                  key={techItem}
+                  className="px-2.5 py-1 text-[11px] font-medium text-slate-700 bg-[#F8FAFC] rounded-md border border-[#E2E8F0]"
+                >
+                  {techItem}
+                </span>
+              ))}
+            </div>
           </div>
-        )}
-
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-1.5 mb-5">
-          {project.tech.map((t) => (
-            <span
-              key={t}
-              className="px-2.5 py-1 text-[10px] font-medium text-pill-text bg-pill rounded-full border border-border"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-
-        {/* Action Links */}
-        <div className="flex gap-3 mt-auto">
-          <a
-            href={project.links.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-navy rounded-lg hover:bg-navy-dark transition-colors"
-          >
-            <ExternalLink size={13} />
-            Live Demo
-          </a>
-          <a
-            href={project.links.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-text-primary border border-border rounded-lg hover:bg-canvas transition-colors"
-          >
-            <GithubIcon size={13} />
-            GitHub
-          </a>
         </div>
       </div>
-    </motion.div>
+
+      {/* Action Links Bar */}
+      <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-2 flex items-center gap-3">
+        <a
+          href={project.links.demo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-xs font-medium text-white bg-navy rounded-lg hover:bg-navy-dark hover:shadow-xs transition-all duration-200"
+        >
+          <ExternalLink size={13} />
+          <span>Live Demo</span>
+        </a>
+        <a
+          href={project.links.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-xs font-medium text-slate-700 bg-white border border-[#E5E7EB] rounded-lg hover:border-navy hover:text-navy hover:bg-[#F8FAFC] transition-all duration-200"
+        >
+          <GithubIcon size={13} />
+          <span>Source Code</span>
+        </a>
+      </div>
+    </motion.article>
   );
 }
 
 export default function FeaturedProjects() {
   return (
     <section id="projects" className="py-20 md:py-28 bg-canvas">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="mb-12 md:mb-14"
         >
-          <h2 className="font-serif text-3xl sm:text-4xl text-text-primary mb-2">
-            Featured Projects
-          </h2>
-          <div className="w-12 h-0.5 bg-navy mb-10" />
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <h2 className="font-serif text-3xl sm:text-4xl text-text-primary mb-2">
+                Featured Projects
+              </h2>
+              <div className="w-12 h-0.5 bg-navy" />
+            </div>
+            <p className="text-text-secondary text-sm sm:text-base max-w-lg">
+              Production-grade systems, AI diagnosis platforms, and scalable backend architectures.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* 2-Column Balanced Projects Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
           {projectsData.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
           ))}
