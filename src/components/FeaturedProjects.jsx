@@ -5,75 +5,73 @@ import { projectsData } from "../data/portfolioData";
 
 function DecisionOSMockup() {
   return (
-    <div className="bg-white border border-[#E5E7EB] rounded-xl overflow-hidden shadow-xs">
+    <div className="bg-white border border-[#E5E7EB] rounded-lg overflow-hidden shadow-2xs">
       {/* Browser Chrome Header */}
-      <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-gray-100 bg-[#F9FAFB]">
+      <div className="flex items-center justify-between px-3 py-2 border-b border-gray-100 bg-[#F9FAFB]">
         <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E5E7EB]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E5E7EB]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E5E7EB]" />
+          <span className="w-2 h-2 rounded-full bg-[#E5E7EB]" />
+          <span className="w-2 h-2 rounded-full bg-[#E5E7EB]" />
+          <span className="w-2 h-2 rounded-full bg-[#E5E7EB]" />
         </div>
-        <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white border border-gray-200/80 text-[11px] text-slate-500 font-mono">
-          <Lock size={10} className="text-slate-400" />
+        <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-white border border-gray-200/80 text-[10px] text-slate-500 font-mono">
+          <Lock size={9} className="text-slate-400" />
           <span>decisionos.internal/diagnostics</span>
         </div>
-        <div className="flex items-center gap-1.5 text-[10px] font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200/60">
+        <div className="flex items-center gap-1 text-[9px] font-medium text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded-full border border-blue-200/60">
           <span className="w-1.5 h-1.5 rounded-full bg-navy animate-pulse" />
           <span>Analytics Engine</span>
         </div>
       </div>
 
       {/* Mock Dashboard Body */}
-      <div className="p-4 sm:p-5 bg-white flex flex-col gap-3">
+      <div className="p-3 sm:p-3.5 bg-white flex flex-col gap-2.5">
         {/* Top Architecture / Pipeline Status Row */}
-        <div className="grid grid-cols-3 gap-2 sm:gap-3">
-          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Dataset Ingestion</p>
-            <p className="text-sm font-bold text-slate-800 tracking-tight">Pandas & SQL</p>
+        <div className="grid grid-cols-3 gap-2">
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded p-2">
+            <p className="text-[9px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Ingestion</p>
+            <p className="text-xs font-bold text-slate-800 tracking-tight">Pandas & SQL</p>
           </div>
-          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Analytics Engine</p>
-            <p className="text-sm font-bold text-navy tracking-tight">KPI Aggregation</p>
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded p-2">
+            <p className="text-[9px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Analytics</p>
+            <p className="text-xs font-bold text-navy tracking-tight">KPI Aggregation</p>
           </div>
-          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Diagnostics</p>
-            <p className="text-sm font-bold text-slate-800 tracking-tight">Root Cause Layer</p>
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded p-2">
+            <p className="text-[9px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Diagnostics</p>
+            <p className="text-xs font-bold text-slate-800 tracking-tight">Root Cause Layer</p>
           </div>
         </div>
 
         {/* Bottom Section Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-stretch">
           {/* Left Panel: Root Cause Analysis */}
-          <div className="sm:col-span-6 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-3 flex flex-col justify-between">
-            <div className="flex items-center justify-between pb-1.5 border-b border-gray-200/70 mb-2">
-              <span className="text-[11px] font-semibold text-slate-800 flex items-center gap-1.5">
-                <Cpu size={12} className="text-navy" />
+          <div className="sm:col-span-6 bg-[#F8FAFC] border border-[#E2E8F0] rounded p-2.5 flex flex-col justify-between">
+            <div className="flex items-center justify-between pb-1 border-b border-gray-200/70 mb-1.5">
+              <span className="text-[10px] font-semibold text-slate-800 flex items-center gap-1">
+                <Cpu size={11} className="text-navy" />
                 Root Cause Attribution
               </span>
-              <span className="text-[9px] text-slate-500 font-mono bg-white px-1.5 py-0.5 rounded border border-gray-200">
-                FastAPI Core
+              <span className="text-[8.5px] text-slate-500 font-mono bg-white px-1 py-0.5 rounded border border-gray-200">
+                FastAPI
               </span>
             </div>
 
-            <div className="space-y-2.5">
-              {/* Factor 1 */}
+            <div className="space-y-1.5">
               <div>
-                <div className="flex justify-between items-center text-[10px] mb-1">
-                  <span className="font-medium text-slate-700">Database Read Contention</span>
-                  <span className="font-semibold text-slate-900 font-mono">Primary Driver</span>
+                <div className="flex justify-between items-center text-[9.5px] mb-0.5">
+                  <span className="font-medium text-slate-700">Read Contention</span>
+                  <span className="font-semibold text-slate-900 font-mono text-[9px]">Primary Driver</span>
                 </div>
-                <div className="h-1.5 bg-slate-200/80 rounded-full overflow-hidden">
+                <div className="h-1 bg-slate-200/80 rounded-full overflow-hidden">
                   <div className="h-full bg-navy rounded-full" style={{ width: "80%" }} />
                 </div>
               </div>
 
-              {/* Factor 2 */}
               <div>
-                <div className="flex justify-between items-center text-[10px] mb-1">
+                <div className="flex justify-between items-center text-[9.5px] mb-0.5">
                   <span className="font-medium text-slate-700">Cache Miss Ratio</span>
-                  <span className="font-semibold text-slate-900 font-mono">Secondary Factor</span>
+                  <span className="font-semibold text-slate-900 font-mono text-[9px]">Secondary Factor</span>
                 </div>
-                <div className="h-1.5 bg-slate-200/80 rounded-full overflow-hidden">
+                <div className="h-1 bg-slate-200/80 rounded-full overflow-hidden">
                   <div className="h-full bg-slate-400 rounded-full" style={{ width: "35%" }} />
                 </div>
               </div>
@@ -81,30 +79,25 @@ function DecisionOSMockup() {
           </div>
 
           {/* Right Panel: Explainable Diagnostics Output */}
-          <div className="sm:col-span-6 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-3 flex flex-col justify-between">
-            <div className="flex items-center justify-between pb-1.5 border-b border-gray-200/70 mb-2">
-              <span className="text-[11px] font-semibold text-slate-800 flex items-center gap-1.5">
-                <Sparkles size={12} className="text-navy" />
-                Explainable Diagnostics
+          <div className="sm:col-span-6 bg-[#F8FAFC] border border-[#E2E8F0] rounded p-2.5 flex flex-col justify-between">
+            <div className="flex items-center justify-between pb-1 border-b border-gray-200/70 mb-1.5">
+              <span className="text-[10px] font-semibold text-slate-800 flex items-center gap-1">
+                <Sparkles size={11} className="text-navy" />
+                Diagnostics
               </span>
-              <span className="text-[9px] bg-blue-50 text-navy font-semibold px-1.5 py-0.5 rounded border border-blue-200/60 font-mono">
+              <span className="text-[8.5px] bg-blue-50 text-navy font-semibold px-1 py-0.5 rounded border border-blue-200/60 font-mono">
                 Rule Engine
               </span>
             </div>
 
-            {/* Structured Information Cards */}
-            <div className="space-y-1.5 text-[10px]">
-              <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
-                <span className="text-slate-500 font-medium">Anomaly Type</span>
+            <div className="space-y-1 text-[9.5px]">
+              <div className="flex items-center justify-between bg-white px-1.5 py-1 rounded border border-gray-200/70">
+                <span className="text-slate-500 font-medium">Anomaly</span>
                 <span className="font-semibold text-slate-800">Resource Contention</span>
               </div>
-              <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
-                <span className="text-slate-500 font-medium">Data Layer</span>
-                <span className="font-semibold text-slate-800 font-mono text-[9.5px]">PostgreSQL + SQLAlchemy</span>
-              </div>
-              <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
-                <span className="text-slate-500 font-medium">Recommended Action</span>
-                <span className="font-semibold text-navy font-mono text-[9.5px]">Scale Read Replicas</span>
+              <div className="flex items-center justify-between bg-white px-1.5 py-1 rounded border border-gray-200/70">
+                <span className="text-slate-500 font-medium">Action</span>
+                <span className="font-semibold text-navy font-mono text-[9px]">Scale Read Replicas</span>
               </div>
             </div>
           </div>
@@ -116,93 +109,88 @@ function DecisionOSMockup() {
 
 function AvelisMockup() {
   return (
-    <div className="bg-white border border-[#E5E7EB] rounded-xl overflow-hidden shadow-xs">
+    <div className="bg-white border border-[#E5E7EB] rounded-lg overflow-hidden shadow-2xs">
       {/* Browser Chrome Header */}
-      <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-gray-100 bg-[#F9FAFB]">
+      <div className="flex items-center justify-between px-3 py-2 border-b border-gray-100 bg-[#F9FAFB]">
         <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E5E7EB]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E5E7EB]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E5E7EB]" />
+          <span className="w-2 h-2 rounded-full bg-[#E5E7EB]" />
+          <span className="w-2 h-2 rounded-full bg-[#E5E7EB]" />
+          <span className="w-2 h-2 rounded-full bg-[#E5E7EB]" />
         </div>
-        <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white border border-gray-200/80 text-[11px] text-slate-500 font-mono">
-          <Lock size={10} className="text-slate-400" />
+        <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-white border border-gray-200/80 text-[10px] text-slate-500 font-mono">
+          <Lock size={9} className="text-slate-400" />
           <span>avelis-library.vercel.app</span>
         </div>
-        <div className="flex items-center gap-1.5 text-[10px] font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200/60">
-          <ShieldCheck size={11} className="text-navy" />
+        <div className="flex items-center gap-1 text-[9px] font-medium text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded-full border border-blue-200/60">
+          <ShieldCheck size={10} className="text-navy" />
           <span>RBAC Protected</span>
         </div>
       </div>
 
       {/* Mock Inventory Body */}
-      <div className="p-4 sm:p-5 bg-white flex flex-col gap-3">
+      <div className="p-3 sm:p-3.5 bg-white flex flex-col gap-2.5">
         {/* Metric Row */}
-        <div className="grid grid-cols-3 gap-2 sm:gap-3">
-          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Catalog Layer</p>
-            <p className="text-sm font-bold text-slate-800 tracking-tight">PostgreSQL / Prisma</p>
+        <div className="grid grid-cols-3 gap-2">
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded p-2">
+            <p className="text-[9px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Catalog Layer</p>
+            <p className="text-xs font-bold text-slate-800 tracking-tight">PostgreSQL / Prisma</p>
           </div>
-          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Circulation</p>
-            <p className="text-sm font-bold text-navy tracking-tight">Borrow & Return</p>
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded p-2">
+            <p className="text-[9px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Circulation</p>
+            <p className="text-xs font-bold text-navy tracking-tight">Borrow & Return</p>
           </div>
-          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5">
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Access Control</p>
-            <p className="text-sm font-bold text-slate-800 tracking-tight">Admin / Member</p>
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded p-2">
+            <p className="text-[9px] uppercase font-semibold tracking-wider text-slate-400 mb-0.5">Access Control</p>
+            <p className="text-xs font-bold text-slate-800 tracking-tight">Admin / Member</p>
           </div>
         </div>
 
         {/* Bottom Section Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-stretch">
           {/* Left Panel: Catalog & Loan Workflows */}
-          <div className="sm:col-span-6 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-3 flex flex-col justify-between">
-            <div className="flex items-center justify-between pb-1.5 border-b border-gray-200/70 mb-2">
-              <span className="text-[11px] font-semibold text-slate-800 flex items-center gap-1.5">
-                <Database size={12} className="text-navy" />
+          <div className="sm:col-span-6 bg-[#F8FAFC] border border-[#E2E8F0] rounded p-2.5 flex flex-col justify-between">
+            <div className="flex items-center justify-between pb-1 border-b border-gray-200/70 mb-1.5">
+              <span className="text-[10px] font-semibold text-slate-800 flex items-center gap-1">
+                <Database size={11} className="text-navy" />
                 Catalog & Circulation
               </span>
-              <span className="text-[9px] text-slate-500 font-mono bg-white px-1.5 py-0.5 rounded border border-gray-200">
+              <span className="text-[8.5px] text-slate-500 font-mono bg-white px-1 py-0.5 rounded border border-gray-200">
                 Prisma ORM
               </span>
             </div>
 
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between text-[10px] bg-white px-2 py-1.5 rounded border border-gray-200/70">
-                <span className="font-medium text-slate-800 truncate max-w-[120px] sm:max-w-[130px]">Designing Data-Intensive Apps</span>
-                <span className="text-[9px] font-semibold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200/50">Borrowed</span>
+            <div className="space-y-1 text-[9.5px]">
+              <div className="flex items-center justify-between bg-white px-1.5 py-1 rounded border border-gray-200/70">
+                <span className="font-medium text-slate-800 truncate max-w-[110px] sm:max-w-[125px]">Data-Intensive Apps</span>
+                <span className="text-[8.5px] font-semibold text-amber-700 bg-amber-50 px-1 py-0.5 rounded border border-amber-200/50">Borrowed</span>
               </div>
-              <div className="flex items-center justify-between text-[10px] bg-white px-2 py-1.5 rounded border border-gray-200/70">
-                <span className="font-medium text-slate-800 truncate max-w-[120px] sm:max-w-[130px]">Database Internals & Storage</span>
-                <span className="text-[9px] font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/50">Available</span>
+              <div className="flex items-center justify-between bg-white px-1.5 py-1 rounded border border-gray-200/70">
+                <span className="font-medium text-slate-800 truncate max-w-[110px] sm:max-w-[125px]">Database Internals</span>
+                <span className="text-[8.5px] font-semibold text-emerald-700 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-200/50">Available</span>
               </div>
             </div>
           </div>
 
           {/* Right Panel: Architecture & Data Integrity */}
-          <div className="sm:col-span-6 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-3 flex flex-col justify-between">
-            <div className="flex items-center justify-between pb-1.5 border-b border-gray-200/70 mb-2">
-              <span className="text-[11px] font-semibold text-slate-800 flex items-center gap-1.5">
-                <ShieldCheck size={12} className="text-navy" />
-                Backend Architecture
+          <div className="sm:col-span-6 bg-[#F8FAFC] border border-[#E2E8F0] rounded p-2.5 flex flex-col justify-between">
+            <div className="flex items-center justify-between pb-1 border-b border-gray-200/70 mb-1.5">
+              <span className="text-[10px] font-semibold text-slate-800 flex items-center gap-1">
+                <ShieldCheck size={11} className="text-navy" />
+                Architecture
               </span>
-              <span className="text-[9px] bg-blue-50 text-navy font-semibold px-1.5 py-0.5 rounded border border-blue-200/60 font-mono">
+              <span className="text-[8.5px] bg-blue-50 text-navy font-semibold px-1 py-0.5 rounded border border-blue-200/60 font-mono">
                 MVC Pattern
               </span>
             </div>
 
-            {/* Structured Information Cards */}
-            <div className="space-y-1.5 text-[10px]">
-              <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
+            <div className="space-y-1 text-[9.5px]">
+              <div className="flex items-center justify-between bg-white px-1.5 py-1 rounded border border-gray-200/70">
                 <span className="text-slate-500 font-medium">Layering</span>
                 <span className="font-semibold text-slate-800">Controller &rarr; Service &rarr; DB</span>
               </div>
-              <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
-                <span className="text-slate-500 font-medium">Transactions</span>
-                <span className="font-semibold text-slate-800 font-mono text-[9.5px]">Prisma Transactions</span>
-              </div>
-              <div className="flex items-center justify-between bg-white px-2 py-1.5 rounded border border-gray-200/70">
+              <div className="flex items-center justify-between bg-white px-1.5 py-1 rounded border border-gray-200/70">
                 <span className="text-slate-500 font-medium">Security</span>
-                <span className="font-semibold text-navy font-mono text-[9.5px]">JWT & RBAC Middleware</span>
+                <span className="font-semibold text-navy font-mono text-[9px]">JWT & RBAC Middleware</span>
               </div>
             </div>
           </div>
@@ -220,23 +208,23 @@ function ProjectCard({ project, index }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.12, duration: 0.45, ease: "easeOut" }}
-      className="bg-white border border-[#E5E7EB] rounded-[22px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)] hover:border-[#D1D5DB] transition-all duration-300 flex flex-col h-full"
+      transition={{ delay: index * 0.1, duration: 0.4, ease: "easeOut" }}
+      className="bg-white border border-[#E5E7EB] rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(0,0,0,0.06)] hover:border-[#D1D5DB] transition-all duration-300 flex flex-col h-full"
     >
       {/* Project Browser Mockup Preview */}
-      <div className="bg-[#F8FAFC] border-b border-[#E5E7EB] p-4 sm:p-6 flex-shrink-0">
+      <div className="bg-[#F8FAFC] border-b border-[#E5E7EB] p-3.5 sm:p-4.5 flex-shrink-0">
         {isFlagship ? <DecisionOSMockup /> : <AvelisMockup />}
       </div>
 
       {/* Card Content */}
-      <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+      <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
         <div>
           {/* Badge & Category */}
-          <div className="flex items-center gap-2 mb-3.5">
+          <div className="flex items-center gap-2 mb-2.5">
             <span
-              className={`px-3 py-1 text-[11px] font-semibold tracking-wider uppercase rounded-full ${
+              className={`px-2.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase rounded-full ${
                 isFlagship
-                  ? "bg-navy text-white shadow-xs"
+                  ? "bg-navy text-white shadow-2xs"
                   : "bg-blue-50 text-navy border border-blue-200/60"
               }`}
             >
@@ -245,29 +233,29 @@ function ProjectCard({ project, index }) {
           </div>
 
           {/* Project Title & Tagline */}
-          <h3 className="font-serif text-2xl sm:text-3xl text-text-primary tracking-tight font-normal mb-1.5">
+          <h3 className="font-serif text-xl sm:text-2xl text-text-primary tracking-tight font-normal mb-1">
             {project.title}
           </h3>
-          <p className="text-xs sm:text-sm font-semibold text-navy tracking-wide mb-3.5">
+          <p className="text-xs sm:text-[13px] font-semibold text-navy tracking-wide mb-2.5">
             {project.tagline}
           </p>
 
           {/* Description */}
-          <p className="text-sm text-text-secondary leading-relaxed mb-6">
+          <p className="text-[13px] sm:text-sm text-text-secondary leading-relaxed mb-4">
             {project.description}
           </p>
 
           {/* Architecture / Engineering Highlights */}
           {project.highlights && project.highlights.length > 0 && (
-            <div className="mb-6 pt-5 border-t border-gray-100">
-              <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3">
+            <div className="mb-4 pt-3.5 border-t border-gray-100">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">
                 Key Engineering Highlights
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1.5">
                 {project.highlights.map((highlight) => (
-                  <div key={highlight} className="flex items-start gap-2">
-                    <Check size={14} className="text-navy flex-shrink-0 mt-0.5" />
-                    <span className="text-xs font-medium text-slate-700 leading-tight">
+                  <div key={highlight} className="flex items-start gap-1.5">
+                    <Check size={13} className="text-navy flex-shrink-0 mt-0.5" />
+                    <span className="text-[11.5px] font-medium text-slate-700 leading-tight">
                       {highlight}
                     </span>
                   </div>
@@ -277,15 +265,15 @@ function ProjectCard({ project, index }) {
           )}
 
           {/* Tech Stack Pills */}
-          <div className="pt-4 border-t border-gray-100">
-            <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2.5">
-              Technologies & Infrastructure
+          <div className="pt-3 border-t border-gray-100">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+              Core Technologies
             </p>
             <div className="flex flex-wrap gap-1.5">
               {project.tech.map((techItem) => (
                 <span
                   key={techItem}
-                  className="px-2.5 py-1 text-[11px] font-medium text-slate-700 bg-[#F8FAFC] rounded-md border border-[#E2E8F0]"
+                  className="px-2.5 py-0.5 text-[11px] font-medium text-slate-700 bg-[#F8FAFC] rounded border border-[#E2E8F0]"
                 >
                   {techItem}
                 </span>
@@ -295,23 +283,23 @@ function ProjectCard({ project, index }) {
         </div>
 
         {/* Action Links Bar */}
-        <div className="pt-6 mt-6 border-t border-gray-100 flex items-center gap-3">
+        <div className="pt-4 mt-4 border-t border-gray-100 flex items-center gap-2.5">
           <a
             href={project.links.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-xs font-medium text-white bg-navy rounded-lg hover:bg-navy-dark hover:shadow-xs transition-all duration-200"
+            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 text-xs font-medium text-white bg-navy rounded-lg hover:bg-navy-dark hover:shadow-2xs transition-all duration-200"
           >
-            <ExternalLink size={13} />
+            <ExternalLink size={12} />
             <span>Live Demo</span>
           </a>
           <a
             href={project.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-xs font-medium text-slate-700 bg-white border border-[#E5E7EB] rounded-lg hover:border-navy hover:text-navy hover:bg-[#F8FAFC] transition-all duration-200"
+            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 text-xs font-medium text-slate-700 bg-white border border-[#E5E7EB] rounded-lg hover:border-navy hover:text-navy hover:bg-[#F8FAFC] transition-all duration-200"
           >
-            <GithubIcon size={13} />
+            <GithubIcon size={12} />
             <span>Source Code</span>
           </a>
         </div>
@@ -322,14 +310,14 @@ function ProjectCard({ project, index }) {
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="py-20 md:py-28 bg-canvas">
+    <section id="projects" className="py-16 md:py-24 bg-canvas">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 md:mb-14"
+          className="mb-10 md:mb-12"
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
@@ -339,13 +327,13 @@ export default function FeaturedProjects() {
               <div className="w-12 h-0.5 bg-navy" />
             </div>
             <p className="text-text-secondary text-sm sm:text-base max-w-lg">
-              Production-grade systems, AI diagnosis platforms, and scalable backend architectures.
+              Engineered systems, AI platforms, and full-stack applications built for scalability and technical depth.
             </p>
           </div>
         </motion.div>
 
         {/* 2-Column Balanced Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-8 items-stretch">
           {projectsData.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
           ))}

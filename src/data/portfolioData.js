@@ -32,19 +32,17 @@ export const aboutData = {
 export const projectsData = [
   {
     title: "DecisionOS",
-    badge: "AI & Backend Project",
-    tagline: "AI-Powered Business Diagnostics & KPI Engine",
+    badge: "AI & Systems Project",
+    tagline: "AI-Assisted Business Diagnostics & KPI Engine",
     description:
-      "DecisionOS is an analytical platform that processes structured business datasets to detect operational bottlenecks and explain metric anomalies. Built with FastAPI, PostgreSQL, SQLAlchemy, and Pandas, it calculates core KPIs, performs root-cause attribution, and generates structured, explainable diagnostic reports without black-box opacity.",
+      "Analytical platform prototype that ingests structured business datasets, aggregates operational KPIs, and executes root-cause attribution algorithms to generate explainable diagnostic reports for decision-making.",
     highlights: [
       "KPI Analytics Engine",
       "Root Cause Attribution System",
-      "Explainable Business Diagnostics",
-      "AI Recommendation Framework",
-      "PostgreSQL & SQLAlchemy Data Layer",
+      "Explainable Diagnostics Pipeline",
       "FastAPI Service Architecture",
     ],
-    tech: ["FastAPI", "Python", "PostgreSQL", "SQLAlchemy", "React", "TypeScript", "Pandas"],
+    tech: ["FastAPI", "Python", "PostgreSQL", "SQLAlchemy", "Pandas", "React"],
     previewUrl: "decisionos.internal/diagnostics",
     links: {
       demo: "#",
@@ -57,16 +55,14 @@ export const projectsData = [
     badge: "Full-Stack Project",
     tagline: "Full-Stack Library Management System",
     description:
-      "AVELIS is a full-stack digital library management system designed for catalog administration, borrowing workflows, and user operations. Built with React, Express.js, PostgreSQL, and Prisma ORM, it implements JWT authentication, multi-tier RBAC, transactional inventory tracking, soft-delete operations, and RESTful APIs following MVC and service patterns.",
+      "Full-stack digital library management system designed to streamline catalog administration, borrowing workflows, inventory tracking, and role-based operations with transactional data integrity.",
     highlights: [
       "JWT Authentication & RBAC",
-      "MVC + Service Architecture",
-      "PostgreSQL Database Design",
       "Prisma ORM & Transaction Handling",
-      "Book Catalog & Inventory Management",
-      "Loan, Return & Reservation Workflows",
+      "MVC + Service Architecture",
+      "Catalog & Loan Management Workflows",
     ],
-    tech: ["React", "Node.js", "Express.js", "PostgreSQL", "Prisma ORM", "JWT Auth", "Supabase"],
+    tech: ["React", "Node.js", "Express.js", "PostgreSQL", "Prisma ORM", "JWT Auth"],
     previewUrl: "avelis-library.vercel.app",
     links: {
       demo: "#",
