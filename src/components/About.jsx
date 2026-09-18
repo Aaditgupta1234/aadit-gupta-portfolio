@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { aboutData } from "../data/portfolioData";
 
 export default function About() {
+  const paragraphs = aboutData.paragraphs || (aboutData.content ? [aboutData.content] : []);
+
   return (
     <section id="about" className="py-20 md:py-28 bg-white">
       <div className="max-w-3xl mx-auto px-6">
@@ -15,9 +17,11 @@ export default function About() {
             {aboutData.title}
           </h2>
           <div className="w-12 h-0.5 bg-navy mb-8" />
-          <p className="text-text-secondary leading-relaxed text-base sm:text-lg">
-            {aboutData.content}
-          </p>
+          <div className="space-y-5 text-text-secondary leading-relaxed text-base sm:text-lg">
+            {paragraphs.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
