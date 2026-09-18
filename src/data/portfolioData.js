@@ -12,7 +12,7 @@ export const heroData = {
   quote: "Building systems that turn data into decisions.",
   subtitle: "Software Engineer · Backend Developer",
   bio: "Building production-grade systems, explainable AI platforms, and scalable backend architectures.",
-  tags: "BE CSE  |  Backend Developer  |  Problem Solver",
+  tags: "Software Engineer  |  Backend Systems  |  AI Platforms",
   techPills: ["Java", "Python", "FastAPI", "PostgreSQL", "React", "TypeScript"],
   socials: {
     github: "https://github.com/Aaditgupta1234",
@@ -28,19 +28,6 @@ export const aboutData = {
     "Through projects like AVELIS and DecisionOS, I explore backend engineering, system design, databases, and real-world product development. My goal is to create reliable software that transforms complex ideas into practical solutions.",
   ],
 };
-
-export const currentFocusData = [
-  { icon: "Code", label: "Data Structures & Algorithms (Java)" },
-  { icon: "Server", label: "Backend Engineering with FastAPI" },
-  { icon: "Database", label: "Database Systems (PostgreSQL)" },
-  { icon: "Brain", label: "Building DecisionOS" },
-];
-
-export const metricsData = [
-  { value: "600+", label: "LeetCode Submissions", sub: "Consistent problem solver" },
-  { value: "2", label: "Major Projects", sub: "Full-stack & AI architecture" },
-  { value: "2", label: "Live Deployments", sub: "FastAPI, Node.js, Vercel, Render" },
-];
 
 export const projectsData = [
   {
@@ -106,53 +93,28 @@ export const skillsData = [
   },
 ];
 
-export const problemSolvingData = {
-  title: "Problem Solving",
-  stat: "600+",
-  statLabel: "LeetCode Submissions",
-  daily: "Daily Coding Practice",
-  topics: ["Arrays", "Hashing", "Linked Lists", "Trees", "Dynamic Programming"],
-  quote: "Consistency compounds.",
-};
-
-export const educationData = {
-  degree: "Bachelor of Engineering in Computer Science",
-  institution: "Chitkara University",
-  graduation: "Expected Graduation: 2028",
-  year: "3rd Year",
-  focus: ["DSA", "Backend Development", "Database Systems"],
-};
-
-export const keyHighlightsData = [
-  "Built AVELIS (Production-grade Digital Library with RBAC)",
-  "Building DecisionOS (Explainable AI Business Diagnosis Platform)",
-  "600+ LeetCode Submissions across core algorithm paradigms",
-  "Backend Engineering & API Design with FastAPI & PostgreSQL",
-  "Multiple Production Deployments across Vercel & Render",
-];
-
 export const journeyData = [
   {
     year: "2024",
-    title: "Foundation",
-    description: "Started serious backend development — Core Java, Data Structures, Relational databases.",
+    title: "Systems & Backend Foundation",
+    description: "Deep dive into core backend architecture, Java, data structures, and relational database systems.",
   },
   {
     year: "2025",
-    title: "First Production Project",
-    description: "Built AVELIS — Full-stack production digital library platform with RBAC & Supabase.",
+    title: "Production Platform — AVELIS",
+    description: "Architected and deployed AVELIS, a full-stack digital library with RBAC, secure JWT auth, and Supabase.",
   },
   {
     year: "2026",
-    title: "Flagship & Placement Prep",
+    title: "AI Architecture — DecisionOS",
     description:
-      "Building DecisionOS (Explainable AI diagnosis platform). Advanced DSA & System Design preparation.",
+      "Architecting DecisionOS, an explainable AI business intelligence platform with FastAPI, PostgreSQL, and modern analytics.",
   },
 ];
 
 export const contactData = {
   title: "Open to Opportunities",
-  subtitle: "Internships • Software Engineering Roles • Backend Development Opportunities",
+  subtitle: "Full-Time Roles • Freelance Projects • Backend Engineering",
   email: "aaditgupta2006@gmail.com",
   links: {
     github: "https://github.com/Aaditgupta1234",
