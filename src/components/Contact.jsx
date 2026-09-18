@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Mail, Check, FileText } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from "./BrandIcons";
 import { contactData } from "../data/portfolioData";
+import MotionSection from "../motion/MotionSection";
+import { SPRINGS } from "../motion/motionTokens";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -20,14 +22,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-white border-t border-gray-100">
+    <MotionSection id="contact" className="py-16 md:py-24 bg-white border-t border-gray-100">
       <div className="max-w-[760px] mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, ease: "easeOut" }}
-        >
+        <div>
           {/* Badge */}
           <span className="inline-block px-3 py-1 text-xs font-semibold tracking-[0.2em] text-navy bg-blue-50 rounded-full mb-4">
             {contactData?.badge || "LET'S CONNECT"}
@@ -45,10 +42,13 @@ export default function Contact() {
 
           {/* Primary CTA — Single Action */}
           <div className="flex flex-col items-center justify-center">
-            <button
+            <motion.button
               onClick={handleEmailClick}
+              whileHover={{ y: -2, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={SPRINGS.snappy}
               type="button"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3 text-sm font-medium text-white bg-navy rounded-lg hover:bg-navy-dark transition-all duration-200 shadow-2xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3 text-sm font-medium text-white bg-navy rounded-lg hover:bg-navy-dark transition-colors duration-200 shadow-2xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2"
               aria-label="Send email or copy address"
             >
               {copied ? (
@@ -62,7 +62,7 @@ export default function Contact() {
                   <span>Email Me</span>
                 </>
               )}
-            </button>
+            </motion.button>
 
             {/* Instant clipboard feedback */}
             {copied && (
@@ -78,64 +78,68 @@ export default function Contact() {
 
           {/* Social Links — Order: Resume • GitHub • LinkedIn • LeetCode */}
           <div className="mt-8 flex items-center justify-center flex-wrap gap-4 sm:gap-5 text-sm text-text-secondary">
-            <a
+            <motion.a
               href={contactData?.resumeUrl || "#"}
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{ y: -2 }}
               className="relative inline-flex items-center gap-1.5 font-medium hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
               aria-label="Resume Document"
             >
               <FileText size={15} />
               Resume
-            </a>
+            </motion.a>
 
             <span className="text-slate-300 select-none" aria-hidden="true">
               •
             </span>
 
-            <a
+            <motion.a
               href={contactData?.links?.github || "https://github.com/Aaditgupta1234"}
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{ y: -2 }}
               className="relative inline-flex items-center gap-1.5 font-medium hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
               aria-label="GitHub Profile"
             >
               <GithubIcon size={15} />
               GitHub
-            </a>
+            </motion.a>
 
             <span className="text-slate-300 select-none" aria-hidden="true">
               •
             </span>
 
-            <a
+            <motion.a
               href={contactData?.links?.linkedin || "https://www.linkedin.com/in/aadit-gupta-028385327/"}
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{ y: -2 }}
               className="relative inline-flex items-center gap-1.5 font-medium hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
               aria-label="LinkedIn Profile"
             >
               <LinkedinIcon size={15} />
               LinkedIn
-            </a>
+            </motion.a>
 
             <span className="text-slate-300 select-none" aria-hidden="true">
               •
             </span>
 
-            <a
+            <motion.a
               href={contactData?.links?.leetcode || "https://leetcode.com/u/AaditGupta_1234/"}
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{ y: -2 }}
               className="relative inline-flex items-center gap-1.5 font-medium hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
               aria-label="LeetCode Profile"
             >
               <LeetCodeIcon size={15} />
               LeetCode
-            </a>
+            </motion.a>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </MotionSection>
   );
 }

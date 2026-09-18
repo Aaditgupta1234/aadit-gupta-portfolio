@@ -1,24 +1,25 @@
 import { motion } from "framer-motion";
 import { FileCode, Server, Database, Monitor, Wrench } from "lucide-react";
 import { skillsData } from "../data/portfolioData";
+import MotionSection from "../motion/MotionSection";
+import { headerAccentLineVariants, cardHoverVariants } from "../motion/variants";
 
 const iconMap = { FileCode, Server, Database, Monitor, Wrench };
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 md:py-28 bg-white">
+    <MotionSection id="skills" className="py-20 md:py-28 bg-white">
       <div className="max-w-5xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <div>
           <h2 className="font-serif text-3xl sm:text-4xl text-text-primary mb-2">
             Technical Expertise
           </h2>
-          <div className="w-12 h-0.5 bg-navy mb-10" />
-        </motion.div>
+          {/* GPU-accelerated animated accent line */}
+          <motion.div
+            variants={headerAccentLineVariants}
+            className="w-16 h-0.5 bg-navy origin-left mb-10"
+          />
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {skillsData.map((group, i) => {
@@ -26,11 +27,13 @@ export default function Skills() {
             return (
               <motion.div
                 key={group.category}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.4 }}
-                className="bg-canvas border border-border rounded-xl p-6 hover:shadow-md transition-shadow duration-200"
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: i * 0.06, duration: 0.4, ease: "easeOut" }}
+                variants={cardHoverVariants}
+                whileHover="hover"
+                className="bg-canvas border border-border rounded-xl p-6 hover:border-navy/30 hover:shadow-xs transition-colors duration-200"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-blue-50 text-navy">
@@ -55,6 +58,6 @@ export default function Skills() {
           })}
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 }

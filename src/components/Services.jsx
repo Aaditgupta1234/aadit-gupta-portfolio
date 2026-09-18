@@ -9,6 +9,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { servicesData } from "../data/portfolioData";
+import MotionSection from "../motion/MotionSection";
+import { headerAccentLineVariants, cardHoverVariants } from "../motion/variants";
+import { SPRINGS } from "../motion/motionTokens";
 
 const iconMap = {
   Building2,
@@ -21,30 +24,28 @@ const iconMap = {
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 md:py-28 bg-canvas border-y border-border/60">
+    <MotionSection id="services" className="py-20 md:py-28 bg-canvas border-y border-border/60">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl mb-12 md:mb-16"
-        >
+        <div className="max-w-3xl mb-12 md:mb-16">
           <span className="inline-block px-3 py-1 text-xs font-semibold tracking-[0.2em] text-navy bg-blue-50 rounded-full mb-3">
             {servicesData.badge || "SERVICES & WHAT I BUILD"}
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl text-text-primary mb-3">
+          <h2 className="font-serif text-3xl sm:text-4xl text-text-primary mb-2">
             {servicesData.title || "What I Build"}
           </h2>
-          <div className="w-12 h-0.5 bg-navy mb-4" />
+          {/* GPU-accelerated animated accent line */}
+          <motion.div
+            variants={headerAccentLineVariants}
+            className="w-16 h-0.5 bg-navy origin-left mb-4"
+          />
           <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-3 leading-snug">
             {servicesData.heading}
           </h3>
           <p className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-2xl">
             {servicesData.description}
           </p>
-        </motion.div>
+        </div>
 
         {/* Services Grid — 6 clean, minimal cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -53,11 +54,13 @@ export default function Services() {
             return (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07, duration: 0.4 }}
-                className="group bg-white border border-border rounded-xl p-6 sm:p-7 flex flex-col justify-between hover:border-navy/30 hover:shadow-md transition-all duration-200"
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: i * 0.06, duration: 0.4, ease: "easeOut" }}
+                variants={cardHoverVariants}
+                whileHover="hover"
+                className="group bg-white border border-border rounded-xl p-6 sm:p-7 flex flex-col justify-between hover:border-navy/30 hover:shadow-xs transition-colors duration-200"
               >
                 <div>
                   {/* Top Bar: Icon + Tag */}
@@ -95,11 +98,11 @@ export default function Services() {
 
         {/* Minimal Collaboration Callout Banner */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.4 }}
-          className="mt-12 p-6 sm:p-8 rounded-xl bg-white border border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ delay: 0.25, duration: 0.4 }}
+          className="mt-12 p-6 sm:p-8 rounded-xl bg-white border border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xs"
         >
           <div>
             <h4 className="text-base font-semibold text-text-primary mb-1">
@@ -109,18 +112,21 @@ export default function Services() {
               Open to contract work, freelance builds, and full-time software engineering roles.
             </p>
           </div>
-          <a
+          <motion.a
             href="#contact"
-            className="group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-navy rounded-lg hover:bg-navy-dark transition-all duration-200 shrink-0"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={SPRINGS.snappy}
+            className="group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-navy rounded-lg hover:bg-navy-dark transition-colors duration-200 shrink-0"
           >
             Start a Conversation
             <ArrowRight
               size={14}
               className="transition-transform duration-200 group-hover:translate-x-0.5"
             />
-          </a>
+          </motion.a>
         </motion.div>
       </div>
-    </section>
+    </MotionSection>
   );
 }
