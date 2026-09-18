@@ -33,16 +33,16 @@ export const projectsData = [
   {
     title: "DecisionOS",
     badge: "Flagship AI Platform",
-    tagline: "Explainable AI & Business Intelligence Engine",
+    tagline: "Explainable AI & Automated Business Diagnostics Platform",
     description:
-      "Architected an executive intelligence platform that parses enterprise datasets, computes automated KPIs, conducts root cause diagnostics, and generates transparent, explainable decision reports.",
+      "DecisionOS helps founders and leadership teams diagnose operational bottlenecks from raw business datasets. Built with FastAPI, PostgreSQL, and Pandas, it computes automated KPIs, executes root cause attribution algorithms, and generates explainable diagnostic reports to support data-backed decision-making.",
     highlights: [
-      "Automated KPI Computation Engine",
+      "Autonomous KPI Computation Engine",
       "Explainable Root Cause Diagnostics",
-      "Strategic Recommendation Pipeline",
-      "Executive Intelligence Reporting",
+      "PostgreSQL & SQLAlchemy Schema Design",
+      "Executive Diagnostic & Export Layer",
     ],
-    tech: ["FastAPI", "PostgreSQL", "SQLAlchemy", "React", "TypeScript", "Pandas"],
+    tech: ["FastAPI", "PostgreSQL", "SQLAlchemy", "React", "TypeScript", "Pandas", "Docker"],
     previewUrl: "decisionos.internal/diagnostics",
     links: {
       demo: "#",
@@ -53,16 +53,16 @@ export const projectsData = [
   {
     title: "AVELIS",
     badge: "Production Platform",
-    tagline: "Full-Stack Digital Library & Asset System",
+    tagline: "Full-Stack Digital Library & Inventory Management System",
     description:
-      "Engineered a production-ready digital library architecture featuring multi-tiered RBAC permissions, secure JWT session management, transactional inventory pipelines, and Supabase integration.",
+      "AVELIS streamlines catalog management, book circulation, and user reservations for organizations. Engineered with Node.js, Express, and PostgreSQL via Prisma ORM, it features multi-tier role-based access control (RBAC), secure JWT authentication, and transactional inventory pipelines for high data integrity.",
     highlights: [
-      "Role-Based Access Control (RBAC)",
-      "JWT Auth & Session Security",
+      "Multi-Tier RBAC & Secure JWT Auth",
       "Relational Schema & Prisma ORM",
-      "Transactional Inventory & Reservations",
+      "Transactional Reservation Pipeline",
+      "Supabase Asset Storage & Deployments",
     ],
-    tech: ["React", "Node.js", "Express", "PostgreSQL", "Prisma", "Supabase"],
+    tech: ["React", "Node.js", "Express", "PostgreSQL", "Prisma", "Supabase", "JWT Auth"],
     previewUrl: "avelis.platform/admin/catalog",
     links: {
       demo: "#",
