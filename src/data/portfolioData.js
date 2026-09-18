@@ -158,19 +158,57 @@ export const skillsData = [
 export const journeyData = [
   {
     year: "2024",
-    title: "Systems & Backend Foundation",
-    description: "Deep dive into core backend architecture, Java, data structures, and relational database systems.",
+    badge: "Education",
+    icon: "GraduationCap",
+    title: "Started B.E. Computer Science",
+    organization: "Chitkara University",
+    description:
+      "Began my Computer Science journey at Chitkara University, building strong foundations in Java, Object-Oriented Programming, Database Management Systems, SQL, and problem solving.",
   },
   {
     year: "2025",
-    title: "Production Platform — AVELIS",
-    description: "Architected and deployed AVELIS, a full-stack digital library with RBAC, secure JWT auth, and Supabase.",
+    badge: "Leadership",
+    icon: "Users",
+    title: "Executive Member — Coding Ninjas CUIET",
+    organization: "Student Technical Community",
+    description:
+      "Selected as an Executive Member to lead campus technical initiatives, coordinate algorithmic contests, and mentor student developers in problem solving.",
+  },
+  {
+    year: "2025",
+    badge: "Hackathon",
+    icon: "Trophy",
+    title: "Hackathon Finalist — SATHACK",
+    organization: "Thapar University",
+    description:
+      "Co-engineered FESTFY XR in an intensive team sprint. Designed the interactive experience, pitched live to industry judges, and advanced to the final round.",
+  },
+  {
+    year: "2025–2026",
+    badge: "Production System",
+    icon: "Layers",
+    title: "Built & Deployed AVELIS",
+    organization: "Flagship Full-Stack Platform",
+    description:
+      "Built and deployed AVELIS, a full-stack digital library platform featuring JWT authentication, role-based access control, PostgreSQL, Prisma ORM, and a modern React frontend.",
   },
   {
     year: "2026",
-    title: "AI Architecture — DecisionOS",
+    badge: "Problem Solving",
+    icon: "Code2",
+    title: "600+ LeetCode Submissions & Problem Solving",
+    organization: "Algorithmic Practice",
     description:
-      "Architecting DecisionOS, an explainable AI business intelligence platform with FastAPI, PostgreSQL, and modern analytics.",
+      "Maintained consistent data structures and algorithms practice through 600+ LeetCode submissions, strengthening problem-solving skills and technical interview readiness.",
+  },
+  {
+    year: "2026",
+    badge: "AI & Backend",
+    icon: "Sparkles",
+    title: "Building DecisionOS",
+    organization: "AI Business Intelligence Platform",
+    description:
+      "Engineering an explainable diagnostics engine using FastAPI, Python, and PostgreSQL to isolate KPI anomalies and deliver automated business recommendations.",
   },
 ];
 
