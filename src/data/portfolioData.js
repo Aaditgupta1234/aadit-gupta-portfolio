@@ -134,22 +134,22 @@ export const skillsData = [
     items: ["Java", "Python", "SQL", "JavaScript", "TypeScript"],
   },
   {
-    category: "Backend",
-    icon: "Server",
-    items: ["FastAPI", "Node.js", "Express", "REST APIs", "JWT Auth"],
+    category: "Frontend & UI",
+    icon: "Monitor",
+    items: ["React", "Tailwind CSS", "HTML5 / CSS3", "Vite"],
   },
   {
-    category: "Databases",
+    category: "Backend Systems",
+    icon: "Server",
+    items: ["FastAPI", "Node.js", "Express.js", "REST APIs", "JWT & RBAC"],
+  },
+  {
+    category: "Databases & ORMs",
     icon: "Database",
     items: ["PostgreSQL", "MongoDB", "Prisma ORM", "SQLAlchemy"],
   },
   {
-    category: "Frontend",
-    icon: "Monitor",
-    items: ["React", "Tailwind CSS", "TypeScript"],
-  },
-  {
-    category: "Tools & Infra",
+    category: "Tools & Infrastructure",
     icon: "Wrench",
     items: ["Git", "GitHub", "Docker", "Postman", "Vercel", "Render"],
   },
