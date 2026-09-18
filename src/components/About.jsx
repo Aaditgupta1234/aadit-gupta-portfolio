@@ -5,7 +5,7 @@ export default function About() {
   const paragraphs = aboutData.paragraphs || (aboutData.content ? [aboutData.content] : []);
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-white">
+    <section id="about" className="pt-16 md:pt-24 pb-20 md:pb-28 bg-white">
       <div className="max-w-3xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
