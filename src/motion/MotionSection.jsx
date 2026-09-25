@@ -3,7 +3,7 @@ import { sectionRevealVariants, reducedMotionSectionVariants } from "./variants"
 
 /**
  * Reusable MotionSection wrapper
- * Enforces unified viewport settings and reduced motion accessibility.
+ * Enforces unified viewport settings (once: true, amount: 0.2) and reduced motion accessibility.
  */
 export default function MotionSection({
   id,

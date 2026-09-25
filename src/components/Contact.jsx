@@ -4,7 +4,12 @@ import { Mail, Check, FileText, Copy, ExternalLink, X } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from "./BrandIcons";
 import { contactData } from "../data/portfolioData";
 import MotionSection from "../motion/MotionSection";
-import { SPRINGS } from "../motion/motionTokens";
+import {
+  buttonMicroVariants,
+  linkLiftVariants,
+  staggerContainerVariants,
+  staggerItemVariants,
+} from "../motion/variants";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -40,33 +45,52 @@ export default function Contact() {
   return (
     <MotionSection id="contact" className="py-16 md:py-24 bg-white border-t border-gray-100">
       <div className="max-w-[760px] mx-auto px-6 text-center">
-        <div>
+        <motion.div
+          variants={staggerContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {/* Badge */}
-          <span className="inline-block px-3 py-1 text-xs font-semibold tracking-[0.2em] text-navy bg-blue-50 rounded-full mb-4">
+          <motion.span
+            variants={staggerItemVariants}
+            className="inline-block px-3 py-1 text-xs font-semibold tracking-[0.2em] text-navy bg-blue-50 rounded-full mb-4"
+          >
             {contactData?.badge || "LET'S CONNECT"}
-          </span>
+          </motion.span>
 
-          {/* Headline — DM Serif Display */}
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-[3.25rem] text-text-primary tracking-tight leading-[1.15] mb-5">
+          {/* Headline */}
+          <motion.h2
+            variants={staggerItemVariants}
+            className="font-serif text-4xl sm:text-5xl lg:text-[3.25rem] text-text-primary tracking-tight leading-[1.15] mb-5"
+          >
             {contactData?.headline || "Building software with purpose."}
-          </h2>
+          </motion.h2>
 
-          {/* Supporting Text — Inter */}
-          <p className="text-base sm:text-lg text-text-secondary font-normal leading-relaxed max-w-xl mx-auto mb-7">
+          {/* Supporting Text */}
+          <motion.p
+            variants={staggerItemVariants}
+            className="text-base sm:text-lg text-text-secondary font-normal leading-relaxed max-w-xl mx-auto mb-7"
+          >
             {contactData?.description}
-          </p>
+          </motion.p>
 
           {/* Primary CTA with Interactive Email Launcher */}
-          <div className="relative inline-flex flex-col items-center justify-center" ref={dropdownRef}>
+          <motion.div
+            variants={staggerItemVariants}
+            className="relative inline-flex flex-col items-center justify-center"
+            ref={dropdownRef}
+          >
             <div className="flex items-center gap-2">
-              {/* Direct Gmail Web Action (Works 100% reliably in any browser) */}
+              {/* Direct Gmail Web Action */}
               <motion.a
                 href={gmailUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -2, scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                transition={SPRINGS.snappy}
+                variants={buttonMicroVariants}
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-navy rounded-lg hover:bg-navy-dark transition-colors duration-200 shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2"
                 aria-label="Send email via Gmail"
               >
@@ -78,9 +102,10 @@ export default function Contact() {
               {/* Options Toggle for Other Clients / Copy */}
               <motion.button
                 onClick={() => setShowOptions(!showOptions)}
-                whileHover={{ y: -2, scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                transition={SPRINGS.snappy}
+                variants={buttonMicroVariants}
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
                 type="button"
                 className="inline-flex items-center justify-center px-3.5 py-3 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2"
                 aria-label="More email options"
@@ -189,15 +214,20 @@ export default function Contact() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </motion.div>
 
-          {/* Social Links — Order: Resume • GitHub • LinkedIn • LeetCode */}
-          <div className="mt-8 flex items-center justify-center flex-wrap gap-4 sm:gap-5 text-sm text-text-secondary">
+          {/* Social Links — Resume • GitHub • LinkedIn • LeetCode */}
+          <motion.div
+            variants={staggerItemVariants}
+            className="mt-8 flex items-center justify-center flex-wrap gap-4 sm:gap-5 text-sm text-text-secondary"
+          >
             <motion.a
               href={contactData?.resumeUrl || "#"}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -2 }}
+              variants={linkLiftVariants}
+              initial="rest"
+              whileHover="hover"
               className="relative inline-flex items-center gap-1.5 font-medium hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
               aria-label="Resume Document"
             >
@@ -213,7 +243,9 @@ export default function Contact() {
               href={contactData?.links?.github || "https://github.com/Aaditgupta1234"}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -2 }}
+              variants={linkLiftVariants}
+              initial="rest"
+              whileHover="hover"
               className="relative inline-flex items-center gap-1.5 font-medium hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
               aria-label="GitHub Profile"
             >
@@ -229,7 +261,9 @@ export default function Contact() {
               href={contactData?.links?.linkedin || "https://www.linkedin.com/in/aadit-gupta-028385327/"}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -2 }}
+              variants={linkLiftVariants}
+              initial="rest"
+              whileHover="hover"
               className="relative inline-flex items-center gap-1.5 font-medium hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
               aria-label="LinkedIn Profile"
             >
@@ -245,15 +279,17 @@ export default function Contact() {
               href={contactData?.links?.leetcode || "https://leetcode.com/u/AaditGupta_1234/"}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -2 }}
+              variants={linkLiftVariants}
+              initial="rest"
+              whileHover="hover"
               className="relative inline-flex items-center gap-1.5 font-medium hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
               aria-label="LeetCode Profile"
             >
               <LeetCodeIcon size={15} />
               LeetCode
             </motion.a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </MotionSection>
   );

@@ -3,14 +3,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, FileDown } from "lucide-react";
 import { navLinks } from "../data/portfolioData";
 import { useActiveSection } from "../hooks/useActiveSection";
-import { buttonHoverVariants } from "../motion/variants";
+import { buttonMicroVariants } from "../motion/variants";
+import { SPRINGS } from "../motion/motionTokens";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const active = useActiveSection();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md border-b border-gray-100">
+    <motion.nav
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md border-b border-gray-100"
+    >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Brand */}
         <a
@@ -37,13 +43,9 @@ export default function Navbar() {
                 {link.label}
                 {isActive && (
                   <motion.div
-                    layoutId="activeNavIndicator"
+                    layoutId="nav-indicator"
                     className="absolute bottom-0 left-0 right-0 h-[2px] bg-navy rounded-full"
-                    transition={{
-                      type: "spring",
-                      stiffness: 380,
-                      damping: 30,
-                    }}
+                    transition={SPRINGS.navIndicator}
                   />
                 )}
               </a>
@@ -56,7 +58,7 @@ export default function Navbar() {
           href="/Aadit_Gupta_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          variants={buttonHoverVariants}
+          variants={buttonMicroVariants}
           initial="rest"
           whileHover="hover"
           whileTap="tap"
@@ -117,6 +119,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 }

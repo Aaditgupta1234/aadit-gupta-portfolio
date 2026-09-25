@@ -2,7 +2,13 @@ import { motion } from "framer-motion";
 import { FileCode, Server, Database, Monitor, Wrench } from "lucide-react";
 import { skillsData } from "../data/portfolioData";
 import MotionSection from "../motion/MotionSection";
-import { headerAccentLineVariants, cardHoverVariants } from "../motion/variants";
+import {
+  headerAccentLineVariants,
+  cardHoverVariants,
+  skillChipVariants,
+  staggerContainerVariants,
+  staggerItemVariants,
+} from "../motion/variants";
 
 const iconMap = { FileCode, Server, Database, Monitor, Wrench };
 
@@ -10,16 +16,24 @@ export default function Skills() {
   return (
     <MotionSection id="skills" className="py-20 md:py-28 bg-white">
       <div className="max-w-5xl mx-auto px-6">
-        <div>
-          <h2 className="font-serif text-3xl sm:text-4xl text-text-primary mb-2">
+        <motion.div
+          variants={staggerContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <motion.h2
+            variants={staggerItemVariants}
+            className="font-serif text-3xl sm:text-4xl text-text-primary mb-2"
+          >
             Technical Expertise
-          </h2>
+          </motion.h2>
           {/* GPU-accelerated animated accent line */}
           <motion.div
             variants={headerAccentLineVariants}
             className="w-16 h-0.5 bg-navy origin-left mb-10"
           />
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {skillsData.map((group, i) => {
@@ -27,10 +41,10 @@ export default function Skills() {
             return (
               <motion.div
                 key={group.category}
-                initial={{ opacity: 0, y: 14 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: i * 0.06, duration: 0.4, ease: "easeOut" }}
+                transition={{ delay: i * 0.06, duration: 0.45, ease: "easeOut" }}
                 variants={cardHoverVariants}
                 whileHover="hover"
                 className="bg-canvas border border-border rounded-xl p-6 hover:border-navy/30 hover:shadow-xs transition-colors duration-200"
@@ -45,12 +59,16 @@ export default function Skills() {
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {group.items.map((item) => (
-                    <span
+                    <motion.span
                       key={item}
-                      className="px-2.5 py-1 text-xs font-medium text-pill-text bg-white rounded-full border border-border"
+                      variants={skillChipVariants}
+                      initial="rest"
+                      whileHover="hover"
+                      whileTap="tap"
+                      className="px-2.5 py-1 text-xs font-medium text-pill-text bg-white rounded-full border border-border inline-block cursor-default select-none"
                     >
                       {item}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>

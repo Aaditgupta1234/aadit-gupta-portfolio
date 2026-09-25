@@ -9,7 +9,12 @@ import {
 } from "lucide-react";
 import { journeyData } from "../data/portfolioData";
 import MotionSection from "../motion/MotionSection";
-import { headerAccentLineVariants } from "../motion/variants";
+import AnimatedCounter from "./AnimatedCounter";
+import {
+  headerAccentLineVariants,
+  staggerContainerVariants,
+  staggerItemVariants,
+} from "../motion/variants";
 import { EASINGS } from "../motion/motionTokens";
 
 const iconMap = {
@@ -22,13 +27,13 @@ const iconMap = {
 };
 
 const milestoneContainerVariants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
     transition: {
       delay: i * 0.08,
-      duration: 0.45,
+      duration: 0.5,
       ease: EASINGS.easeOutCubic,
       staggerChildren: 0.06,
     },
@@ -36,12 +41,12 @@ const milestoneContainerVariants = {
 };
 
 const milestoneChildVariants = {
-  hidden: { opacity: 0, y: 8 },
+  hidden: { opacity: 0, y: 10 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.35,
+      duration: 0.4,
       ease: EASINGS.easeOutCubic,
     },
   },
@@ -52,22 +57,37 @@ export default function JourneyTimeline() {
     <MotionSection id="journey" className="py-20 md:py-28 bg-white">
       <div className="max-w-4xl mx-auto px-6">
         {/* Section Header */}
-        <div className="mb-12 md:mb-16">
-          <span className="inline-block px-3 py-1 text-xs font-semibold tracking-[0.2em] text-navy bg-blue-50 rounded-full mb-3">
+        <motion.div
+          variants={staggerContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="mb-12 md:mb-16"
+        >
+          <motion.span
+            variants={staggerItemVariants}
+            className="inline-block px-3 py-1 text-xs font-semibold tracking-[0.2em] text-navy bg-blue-50 rounded-full mb-3"
+          >
             JOURNEY & MILESTONES
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl text-text-primary mb-2">
+          </motion.span>
+          <motion.h2
+            variants={staggerItemVariants}
+            className="font-serif text-3xl sm:text-4xl text-text-primary mb-2"
+          >
             Engineering Journey
-          </h2>
+          </motion.h2>
           {/* GPU-accelerated animated accent line */}
           <motion.div
             variants={headerAccentLineVariants}
             className="w-16 h-0.5 bg-navy origin-left mb-4"
           />
-          <p className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-2xl">
+          <motion.p
+            variants={staggerItemVariants}
+            className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-2xl"
+          >
             A chronological record of engineering milestones, leadership, hackathons, and systems development.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Hybrid Milestone Timeline */}
         <div className="relative">
@@ -78,6 +98,7 @@ export default function JourneyTimeline() {
             {journeyData.map((item, i) => {
               const Icon = iconMap[item.icon] || Sparkles;
               const isFlagship = Boolean(item.isFlagship);
+              const has600 = item.title.includes("600+");
 
               return (
                 <motion.div
@@ -138,9 +159,15 @@ export default function JourneyTimeline() {
                       )}
                     </div>
 
-                    {/* Milestone Title */}
+                    {/* Milestone Title (with AnimatedCounter if numeric milestone) */}
                     <h3 className="text-base font-semibold text-text-primary mb-1 group-hover:text-navy transition-colors">
-                      {item.title}
+                      {has600 ? (
+                        <>
+                          <AnimatedCounter value="600+" duration={1.2} /> Algorithmic Practice Milestones
+                        </>
+                      ) : (
+                        item.title
+                      )}
                     </h3>
 
                     {/* Mobile-only Organization Subtitle */}

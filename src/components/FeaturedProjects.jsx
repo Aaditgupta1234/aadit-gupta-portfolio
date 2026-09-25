@@ -3,7 +3,13 @@ import { ExternalLink, Check, Lock, ShieldCheck, Cpu, Database, Sparkles } from 
 import { GithubIcon } from "./BrandIcons";
 import { projectsData } from "../data/portfolioData";
 import MotionSection from "../motion/MotionSection";
-import { headerAccentLineVariants, pillHoverVariants } from "../motion/variants";
+import {
+  headerAccentLineVariants,
+  skillChipVariants,
+  buttonMicroVariants,
+  staggerContainerVariants,
+  staggerItemVariants,
+} from "../motion/variants";
 import { SPRINGS } from "../motion/motionTokens";
 
 function DecisionOSMockup() {
@@ -216,11 +222,12 @@ function ProjectCard({ project, index }) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ delay: index * 0.1, duration: 0.45, ease: "easeOut" }}
-      whileHover={{ y: -3, scale: 1.01 }}
+      transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
+      whileHover={{ y: -4 }}
+      transitionHover={SPRINGS.cardLift}
       className={`bg-white rounded-2xl overflow-hidden flex flex-col transition-shadow duration-300 ${
         isFeatured
           ? "border-2 border-navy/20 shadow-[0_10px_24px_rgba(15,23,42,0.06)] hover:shadow-[0_16px_36px_rgba(15,23,42,0.1)] hover:border-navy/40"
@@ -292,7 +299,7 @@ function ProjectCard({ project, index }) {
             </div>
           )}
 
-          {/* Tech Stack Pills with subtle hover lift */}
+          {/* Tech Stack Pills with subtle scale on hover */}
           <div className="pt-2.5 border-t border-gray-100">
             <p className="text-[9.5px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
               Tech Stack
@@ -301,10 +308,11 @@ function ProjectCard({ project, index }) {
               {project.tech.map((techItem) => (
                 <motion.span
                   key={techItem}
-                  variants={pillHoverVariants}
+                  variants={skillChipVariants}
                   initial="rest"
                   whileHover="hover"
-                  className="px-2 py-0.5 text-[10.5px] font-medium text-slate-700 bg-[#F8FAFC] rounded border border-[#E2E8F0] cursor-default"
+                  whileTap="tap"
+                  className="px-2 py-0.5 text-[10.5px] font-medium text-slate-700 bg-[#F8FAFC] rounded border border-[#E2E8F0] inline-block cursor-default select-none"
                 >
                   {techItem}
                 </motion.span>
@@ -313,15 +321,16 @@ function ProjectCard({ project, index }) {
           </div>
         </div>
 
-        {/* Action Links Bar */}
+        {/* Action Links Bar with micro-interactions */}
         <div className="pt-3 mt-3 border-t border-gray-100 flex items-center gap-2.5">
           <motion.a
             href={project.links.demo}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            transition={SPRINGS.snappy}
+            variants={buttonMicroVariants}
+            initial="rest"
+            whileHover="hover"
+            whileTap="tap"
             className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-[11.5px] font-medium text-white bg-navy rounded-lg hover:bg-navy-dark hover:shadow-2xs transition-colors duration-200"
           >
             <ExternalLink size={11} />
@@ -331,9 +340,10 @@ function ProjectCard({ project, index }) {
             href={project.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            transition={SPRINGS.snappy}
+            variants={buttonMicroVariants}
+            initial="rest"
+            whileHover="hover"
+            whileTap="tap"
             className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-[11.5px] font-medium text-slate-700 bg-white border border-[#E5E7EB] rounded-lg hover:border-navy hover:text-navy hover:bg-[#F8FAFC] transition-colors duration-200"
           >
             <GithubIcon size={11} />
@@ -349,25 +359,37 @@ export default function FeaturedProjects() {
   return (
     <MotionSection id="projects" className="py-14 md:py-20 bg-canvas">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-8 md:mb-10">
+        <motion.div
+          variants={staggerContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="mb-8 md:mb-10"
+        >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-3">
             <div>
-              <h2 className="font-serif text-3xl sm:text-4xl text-text-primary mb-2">
+              <motion.h2
+                variants={staggerItemVariants}
+                className="font-serif text-3xl sm:text-4xl text-text-primary mb-2"
+              >
                 Featured Projects
-              </h2>
+              </motion.h2>
               {/* GPU-accelerated animated accent line */}
               <motion.div
                 variants={headerAccentLineVariants}
                 className="w-16 h-0.5 bg-navy origin-left"
               />
             </div>
-            <p className="text-text-secondary text-sm sm:text-base max-w-lg">
+            <motion.p
+              variants={staggerItemVariants}
+              className="text-text-secondary text-sm sm:text-base max-w-lg"
+            >
               Production-grade systems, AI platforms, and full-stack applications built for scalability and technical depth.
-            </p>
+            </motion.p>
           </div>
-        </div>
+        </motion.div>
 
-        {/* 2-Column Balanced Projects Grid */}
+        {/* 2-Column Balanced Projects Grid with card lift (y: -4, no scale) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-7 items-stretch">
           {projectsData.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />

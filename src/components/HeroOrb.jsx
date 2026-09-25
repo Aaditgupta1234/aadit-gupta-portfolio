@@ -65,7 +65,10 @@ export default function HeroOrb() {
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className="relative w-full max-w-[460px] h-[420px] sm:h-[450px] flex items-center justify-center select-none"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
@@ -534,6 +537,6 @@ export default function HeroOrb() {
           React
         </span>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
