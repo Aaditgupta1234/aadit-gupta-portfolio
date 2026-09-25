@@ -66,9 +66,9 @@ export default function HeroOrb() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96 }}
+      initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ delay: 0.2, duration: 0.9, ease: "easeOut" }}
       className="relative w-full max-w-[460px] h-[420px] sm:h-[450px] flex items-center justify-center select-none"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}

@@ -3,7 +3,11 @@ import { ArrowRight, FileDown } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from "./BrandIcons";
 import { heroData } from "../data/portfolioData";
 import HeroOrb from "./HeroOrb";
-import { skillChipVariants, buttonMicroVariants, linkLiftVariants } from "../motion/variants";
+import {
+  skillChipVariants,
+  buttonMicroVariants,
+  socialIconVariants,
+} from "../motion/variants";
 
 export default function Hero() {
   return (
@@ -21,82 +25,61 @@ export default function Hero() {
       <div className="relative max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center">
         {/* Left Column (58% allocated space) */}
         <div className="lg:col-span-7 max-w-[680px]">
-          {/* 1. Badge (y: 12 -> 0) */}
+          {/* 1. Badge */}
           <motion.span
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
             className="inline-block px-3 py-1 text-xs font-semibold tracking-[0.2em] text-navy bg-blue-50 rounded-full mb-5"
           >
             {heroData.label}
           </motion.span>
 
-          {/* 2. Hero Name (opacity: 0 -> 1, y: 25 -> 0, duration: 0.7s) */}
+          {/* 2. Name */}
           <motion.h1
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ delay: 0.15, duration: 0.8, ease: "easeOut" }}
             className="font-serif text-5xl sm:text-6xl lg:text-7xl text-text-primary leading-[1.1] mb-3"
           >
             {heroData.name}
           </motion.h1>
 
-          {/* 3. Subtitle (delay: 0.1s) */}
+          {/* 3. Role / Subtitle */}
           <motion.h2
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
+            transition={{ delay: 0.25, duration: 0.5, ease: "easeOut" }}
             className="text-lg sm:text-xl font-semibold tracking-wide text-text-primary mb-3"
           >
             {heroData.subtitle}
           </motion.h2>
 
-          {/* 4. Description (delay: 0.2s) */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
-            className="mb-6"
-          >
-            <p className="text-base sm:text-lg text-text-secondary font-medium leading-relaxed max-w-2xl mb-2">
+          {/* 4. Description & 5. Quote */}
+          <div className="mb-6">
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.5, ease: "easeOut" }}
+              className="text-base sm:text-lg text-text-secondary font-medium leading-relaxed max-w-2xl mb-2"
+            >
               {heroData.bio}
-            </p>
-            <p className="text-sm text-gray-400 italic tracking-wide">
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.42, duration: 0.5, ease: "easeOut" }}
+              className="text-sm text-gray-400 italic tracking-wide"
+            >
               &ldquo;{heroData.quote}&rdquo;
-            </p>
-          </motion.div>
+            </motion.p>
+          </div>
 
-          {/* 5. Tech Pills (delay: 0.25s) with subtle chip scale */}
+          {/* 6. CTA Action Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25, duration: 0.5, ease: "easeOut" }}
-            className="mb-6"
-          >
-            <p className="text-[11px] tracking-wide text-text-secondary font-medium uppercase mb-2.5">
-              {heroData.tags}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {heroData.techPills.map((pill) => (
-                <motion.span
-                  key={pill}
-                  variants={skillChipVariants}
-                  initial="rest"
-                  whileHover="hover"
-                  whileTap="tap"
-                  className="px-3 py-1 text-xs font-medium text-pill-text bg-pill rounded-full border border-border inline-block cursor-default select-none"
-                >
-                  {pill}
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* 6. CTA Action Buttons (delay: 0.3s) with micro-interactions */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
+            transition={{ delay: 0.50, duration: 0.5, ease: "easeOut" }}
             className="flex flex-wrap gap-3 mb-5"
           >
             <motion.a
@@ -128,18 +111,18 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* 7. Social Links (delay: 0.4s) */}
+          {/* 7. Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5, ease: "easeOut" }}
-            className="flex items-center gap-4 text-sm"
+            transition={{ delay: 0.58, duration: 0.5, ease: "easeOut" }}
+            className="flex items-center gap-4 text-sm mb-6"
           >
             <motion.a
               href={heroData.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              variants={linkLiftVariants}
+              variants={socialIconVariants}
               initial="rest"
               whileHover="hover"
               className="relative inline-flex items-center gap-1.5 font-medium text-slate-500 hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
@@ -153,7 +136,7 @@ export default function Hero() {
               href={heroData.socials.leetcode}
               target="_blank"
               rel="noopener noreferrer"
-              variants={linkLiftVariants}
+              variants={socialIconVariants}
               initial="rest"
               whileHover="hover"
               className="relative inline-flex items-center gap-1.5 font-medium text-slate-500 hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
@@ -167,7 +150,7 @@ export default function Hero() {
               href={heroData.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              variants={linkLiftVariants}
+              variants={socialIconVariants}
               initial="rest"
               whileHover="hover"
               className="relative inline-flex items-center gap-1.5 font-medium text-slate-500 hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
@@ -177,9 +160,34 @@ export default function Hero() {
               LinkedIn
             </motion.a>
           </motion.div>
+
+          {/* 8. Skill Pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.66, duration: 0.5, ease: "easeOut" }}
+          >
+            <p className="text-[11px] tracking-wide text-text-secondary font-medium uppercase mb-2.5">
+              {heroData.tags}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {heroData.techPills.map((pill) => (
+                <motion.span
+                  key={pill}
+                  variants={skillChipVariants}
+                  initial="rest"
+                  whileHover="hover"
+                  whileTap="tap"
+                  className="px-3 py-1 text-xs font-medium text-pill-text bg-pill rounded-full border border-border inline-block cursor-default select-none"
+                >
+                  {pill}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
-        {/* Right Column — Interactive 3D Hero Orb (42% allocated space) */}
+        {/* 9. Right Column — Orbital Visualization */}
         <div className="lg:col-span-5 flex justify-center items-center lg:-translate-y-4">
           <HeroOrb />
         </div>

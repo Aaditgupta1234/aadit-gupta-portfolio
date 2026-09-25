@@ -6,7 +6,7 @@ import { contactData } from "../data/portfolioData";
 import MotionSection from "../motion/MotionSection";
 import {
   buttonMicroVariants,
-  linkLiftVariants,
+  socialIconVariants,
   staggerContainerVariants,
   staggerItemVariants,
 } from "../motion/variants";
@@ -225,7 +225,7 @@ export default function Contact() {
               href={contactData?.resumeUrl || "#"}
               target="_blank"
               rel="noopener noreferrer"
-              variants={linkLiftVariants}
+              variants={socialIconVariants}
               initial="rest"
               whileHover="hover"
               className="relative inline-flex items-center gap-1.5 font-medium hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
@@ -243,7 +243,7 @@ export default function Contact() {
               href={contactData?.links?.github || "https://github.com/Aaditgupta1234"}
               target="_blank"
               rel="noopener noreferrer"
-              variants={linkLiftVariants}
+              variants={socialIconVariants}
               initial="rest"
               whileHover="hover"
               className="relative inline-flex items-center gap-1.5 font-medium hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
@@ -261,7 +261,7 @@ export default function Contact() {
               href={contactData?.links?.linkedin || "https://www.linkedin.com/in/aadit-gupta-028385327/"}
               target="_blank"
               rel="noopener noreferrer"
-              variants={linkLiftVariants}
+              variants={socialIconVariants}
               initial="rest"
               whileHover="hover"
               className="relative inline-flex items-center gap-1.5 font-medium hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"
@@ -279,7 +279,7 @@ export default function Contact() {
               href={contactData?.links?.leetcode || "https://leetcode.com/u/AaditGupta_1234/"}
               target="_blank"
               rel="noopener noreferrer"
-              variants={linkLiftVariants}
+              variants={socialIconVariants}
               initial="rest"
               whileHover="hover"
               className="relative inline-flex items-center gap-1.5 font-medium hover:text-navy transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-0 after:bg-navy hover:after:w-full after:transition-all after:duration-200"

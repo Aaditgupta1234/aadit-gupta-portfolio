@@ -5,12 +5,12 @@ import { projectsData } from "../data/portfolioData";
 import MotionSection from "../motion/MotionSection";
 import {
   headerAccentLineVariants,
+  projectCardHoverVariants,
   skillChipVariants,
   buttonMicroVariants,
   staggerContainerVariants,
   staggerItemVariants,
 } from "../motion/variants";
-import { SPRINGS } from "../motion/motionTokens";
 
 function DecisionOSMockup() {
   return (
@@ -226,8 +226,8 @@ function ProjectCard({ project, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
-      whileHover={{ y: -4 }}
-      transitionHover={SPRINGS.cardLift}
+      variants={projectCardHoverVariants}
+      whileHover="hover"
       className={`bg-white rounded-2xl overflow-hidden flex flex-col transition-shadow duration-300 ${
         isFeatured
           ? "border-2 border-navy/20 shadow-[0_10px_24px_rgba(15,23,42,0.06)] hover:shadow-[0_16px_36px_rgba(15,23,42,0.1)] hover:border-navy/40"

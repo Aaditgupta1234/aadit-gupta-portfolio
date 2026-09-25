@@ -1,18 +1,7 @@
 /**
- * Motion Tokens & Physics Constants
- * Inspired by Apple, Linear, Stripe, and Vercel design languages.
- * Tuned for 60 FPS GPU-accelerated micro-interactions.
+ * Motion Tokens & Physics Constants — Portfolio v1.0 Final Motion Pass
+ * Apple / Linear / Stripe inspired subtle micro-interactions & physics.
  */
-
-export const MOTION_LIMITS = {
-  maxScale: 1.04,
-  maxTranslateY: -4,
-  maxDuration: 0.8,
-};
-
-export const PERFORMANCE_LIMITS = {
-  targetFPS: 60,
-};
 
 export const EASINGS = {
   easeOut: [0, 0, 0.2, 1],
@@ -23,7 +12,7 @@ export const EASINGS = {
 
 export const SPRINGS = {
   cardLift: { type: "spring", stiffness: 300, damping: 25 },
-  navIndicator: { type: "spring", stiffness: 380, damping: 30 },
+  navIndicator: { type: "spring", stiffness: 450, damping: 35 },
   snappy: { type: "spring", stiffness: 400, damping: 30 },
   smooth: { type: "spring", stiffness: 260, damping: 20 },
   gentle: { type: "spring", stiffness: 180, damping: 24 },
@@ -31,11 +20,11 @@ export const SPRINGS = {
 
 export const DURATIONS = {
   fast: 0.15,
-  micro: 0.2,
+  button: 0.2,
   base: 0.35,
   navbar: 0.45,
-  reveal: 0.6,
-  heroName: 0.7,
-  heroOrb: 0.8,
+  sectionReveal: 0.7,
+  heroName: 0.8,
+  heroOrb: 0.9,
   counter: 1.2,
 };
