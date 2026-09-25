@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, Check, FileText } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Check, FileText, Copy, ExternalLink, X } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from "./BrandIcons";
 import { contactData } from "../data/portfolioData";
 import MotionSection from "../motion/MotionSection";
@@ -8,18 +8,34 @@ import { SPRINGS } from "../motion/motionTokens";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const [showOptions, setShowOptions] = useState(false);
+  const dropdownRef = useRef(null);
   const email = contactData?.email || "aaditgupta2006@gmail.com";
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
+  const outlookUrl = `https://outlook.live.com/mail/0/deeplink/compose?to=${email}`;
+  const mailtoUrl = `mailto:${email}`;
 
-  const handleEmailClick = () => {
-    // Copy email address to clipboard as an instant fallback
-    navigator.clipboard.writeText(email).then(() => {
+  const handleCopy = (e) => {
+    e?.stopPropagation();
+    if (navigator?.clipboard) {
+      navigator.clipboard.writeText(email);
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
-    });
-
-    // Open default mail client
-    window.location.href = `mailto:${email}?subject=Software%20Engineering%20Opportunity`;
+    }
   };
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowOptions(false);
+      }
+    }
+    if (showOptions) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showOptions]);
 
   return (
     <MotionSection id="contact" className="py-16 md:py-24 bg-white border-t border-gray-100">
@@ -40,40 +56,139 @@ export default function Contact() {
             {contactData?.description}
           </p>
 
-          {/* Primary CTA — Single Action */}
-          <div className="flex flex-col items-center justify-center">
-            <motion.button
-              onClick={handleEmailClick}
-              whileHover={{ y: -2, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={SPRINGS.snappy}
+          {/* Primary CTA with Interactive Email Launcher */}
+          <div className="relative inline-flex flex-col items-center justify-center" ref={dropdownRef}>
+            <div className="flex items-center gap-2">
+              {/* Direct Gmail Web Action (Works 100% reliably in any browser) */}
+              <motion.a
+                href={gmailUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={SPRINGS.snappy}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-navy rounded-lg hover:bg-navy-dark transition-colors duration-200 shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2"
+                aria-label="Send email via Gmail"
+              >
+                <Mail size={16} />
+                <span>Email Me (Gmail)</span>
+                <ExternalLink size={13} className="opacity-70" />
+              </motion.a>
+
+              {/* Options Toggle for Other Clients / Copy */}
+              <motion.button
+                onClick={() => setShowOptions(!showOptions)}
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={SPRINGS.snappy}
+                type="button"
+                className="inline-flex items-center justify-center px-3.5 py-3 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2"
+                aria-label="More email options"
+                title="More email options"
+              >
+                {showOptions ? <X size={16} /> : <span className="text-xs font-semibold px-0.5">Options ▾</span>}
+              </motion.button>
+            </div>
+
+            {/* Email Address Quick Copy Chip */}
+            <button
+              onClick={handleCopy}
               type="button"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3 text-sm font-medium text-white bg-navy rounded-lg hover:bg-navy-dark transition-colors duration-200 shadow-2xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2"
-              aria-label="Send email or copy address"
+              className="mt-3 inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-navy transition-colors bg-slate-50 hover:bg-blue-50 px-3 py-1 rounded-full border border-slate-200 cursor-pointer"
             >
               {copied ? (
                 <>
-                  <Check size={15} className="text-emerald-400" />
-                  <span>Email Copied!</span>
+                  <Check size={13} className="text-emerald-500" />
+                  <span className="text-emerald-600 font-medium">Copied {email}</span>
                 </>
               ) : (
                 <>
-                  <Mail size={15} />
-                  <span>Email Me</span>
+                  <Copy size={12} />
+                  <span>{email}</span>
                 </>
               )}
-            </motion.button>
+            </button>
 
-            {/* Instant clipboard feedback */}
-            {copied && (
-              <motion.p
-                initial={{ opacity: 0, y: -4 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-xs text-emerald-600 font-medium mt-2.5"
-              >
-                {email} copied to clipboard
-              </motion.p>
-            )}
+            {/* Options Dropdown Menu */}
+            <AnimatePresence>
+              {showOptions && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute top-full mt-2 w-72 bg-white rounded-xl shadow-xl border border-slate-200 p-2 z-50 text-left"
+                >
+                  <div className="px-3 py-1.5 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                    Choose Mail Service
+                  </div>
+
+                  {/* Gmail Web */}
+                  <a
+                    href={gmailUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setShowOptions(false)}
+                    className="flex items-center justify-between px-3 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-navy rounded-lg transition-colors"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-6 h-6 rounded bg-red-50 text-red-600 flex items-center justify-center font-bold text-xs">
+                        G
+                      </div>
+                      <span className="font-medium">Gmail (Web)</span>
+                    </div>
+                    <ExternalLink size={13} className="text-slate-400" />
+                  </a>
+
+                  {/* Outlook Web */}
+                  <a
+                    href={outlookUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setShowOptions(false)}
+                    className="flex items-center justify-between px-3 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-navy rounded-lg transition-colors"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-6 h-6 rounded bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-xs">
+                        O
+                      </div>
+                      <span className="font-medium">Outlook (Web)</span>
+                    </div>
+                    <ExternalLink size={13} className="text-slate-400" />
+                  </a>
+
+                  {/* Default Mail App (mailto) */}
+                  <a
+                    href={mailtoUrl}
+                    onClick={() => setShowOptions(false)}
+                    className="flex items-center justify-between px-3 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-navy rounded-lg transition-colors"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-6 h-6 rounded bg-slate-100 text-slate-600 flex items-center justify-center font-bold text-xs">
+                        <Mail size={12} />
+                      </div>
+                      <span className="font-medium">Default Mail App</span>
+                    </div>
+                    <span className="text-[10px] text-slate-400 font-mono">mailto:</span>
+                  </a>
+
+                  <div className="my-1 border-t border-slate-100" />
+
+                  {/* Copy Email */}
+                  <button
+                    onClick={(e) => {
+                      handleCopy(e);
+                      setShowOptions(false);
+                    }}
+                    type="button"
+                    className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 rounded-lg transition-colors cursor-pointer"
+                  >
+                    <Copy size={14} className="text-slate-400" />
+                    <span>Copy email address</span>
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           {/* Social Links — Order: Resume • GitHub • LinkedIn • LeetCode */}
